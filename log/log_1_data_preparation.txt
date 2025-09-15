@@ -1,0 +1,542 @@
+
+> # R file for:
+> # Data preparation
+> # 
+> # For paper:
+> # 
+> # Authors of the paper:
+> # 
+> # Code by:
+> # Ari Purwanto Sarwo Prasojo
+> # 
+> # Date of this version:
+> # 2025/09/14
+> 
+> 
+> # initial objects
+> init_obj <- ls()
+
+> # time start, system info
+> time_start <- Sys.time()
+
+> time_start
+[1] "2025-09-15 17:19:32 WIB"
+
+> benchmarkme::get_cpu()
+	 Unable to detect your CPU.
+            Please raise an issue at https://github.com/csgillespie/benchmarkme
+$vendor_id
+[1] NA
+
+$model_name
+[1] NA
+
+$no_of_cores
+[1] 12
+
+
+> benchmarkme::get_ram()
+68.4 GB
+
+> sessionInfo()
+R version 4.3.3 (2024-02-29 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26100)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_Indonesia.utf8  LC_CTYPE=English_Indonesia.utf8    LC_MONETARY=English_Indonesia.utf8
+[4] LC_NUMERIC=C                       LC_TIME=English_Indonesia.utf8    
+
+time zone: Asia/Jakarta
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] here_1.0.1           sdcLog_0.5.1         broom.helpers_1.21.0 broom_1.0.8          ggstats_0.10.0      
+ [6] logistf_1.26.1       sandwich_3.1-1       lmtest_0.9-40        zoo_1.8-14           ggeffects_2.3.1     
+[11] performance_0.15.0   olsrr_0.6.1          multilevel_2.7       MASS_7.3-60.0.1      nlme_3.1-164        
+[16] psych_2.5.6          janitor_2.2.1        haven_2.5.5          lubridate_1.9.4      forcats_1.0.0       
+[21] stringr_1.5.1        dplyr_1.1.4          purrr_1.1.0          readr_2.1.5          tidyr_1.3.1         
+[26] tibble_3.3.0         ggplot2_3.5.2        tidyverse_2.0.0     
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1      farver_2.1.2          mathjaxr_1.8-0        rpart_4.1.23          timechange_0.3.0     
+ [6] lifecycle_1.0.4       survival_3.5-8        magrittr_2.0.3        compiler_4.3.3        rlang_1.1.6          
+[11] tools_4.3.3           data.table_1.17.8     mnormt_2.1.1          RColorBrewer_1.1-3    abind_1.4-8          
+[16] withr_3.0.2           nnet_7.3-19           grid_4.3.3            jomo_2.7-6            mice_3.18.0          
+[21] scales_1.4.0          iterators_1.0.14      insight_1.4.2         cli_3.6.5             reformulas_0.4.1     
+[26] generics_0.1.4        httr_1.4.7            tzdb_0.5.0            minqa_1.2.8           operator.tools_1.6.3 
+[31] splines_4.3.3         parallel_4.3.3        vctrs_0.6.5           boot_1.3-29           glmnet_4.1-10        
+[36] Matrix_1.6-5          benchmarkme_1.0.8     carData_3.0-5         car_3.1-3             hms_1.1.3            
+[41] mitml_0.4-5           Formula_1.2-5         nortest_1.0-4         foreach_1.5.2         goftest_1.2-3        
+[46] benchmarkmeData_1.0.4 glue_1.8.0            nloptr_2.2.1          pan_1.9               codetools_0.2-19     
+[51] stringi_1.8.7         gtable_0.3.6          shape_1.4.6.1         lme4_1.1-37           pillar_1.11.0        
+[56] R6_2.6.1              Rdpack_2.6.4          formula.tools_1.7.1   doParallel_1.0.17     rprojroot_2.1.0      
+[61] lattice_0.22-5        rbibutils_2.3         backports_1.5.0       snakecase_0.11.1      Rcpp_1.1.0           
+[66] checkmate_2.3.2       gridExtra_2.3         mgcv_1.9-1            pkgconfig_2.0.3      
+
+> # saved name ----
+> sv_name <- here(dta_path, "dataset_for_analysis.rds")
+
+> # read data ----
+> df <- readRDS(here(dta_path,"dataset-survei.rds"))
+
+> # labelled data
+> dfl <- df %>% haven::as_factor()
+
+> glimpse(dfl)
+Rows: 368
+Columns: 105
+$ id_resp         <dbl> 114348574672, 114348568779, 114348565610, 114348561203, 114348557659, 114348548971, 1143485448…
+$ waktu_mulai     <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ waktu_selesai   <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ ip              <chr> "140.213.151.160", "140.213.151.160", "140.213.151.160", "140.213.151.160", "140.213.151.160",…
+$ a01             <fct> Angga Aditiya Nugraha, Angga Aditiya Nugraha, Angga Aditiya Nugraha, Angga Aditiya Nugraha, An…
+$ a02             <date> 2023-06-17, 2023-06-17, 2023-06-17, 2023-06-17, 2023-06-17, 2023-06-16, 2023-06-16, 2023-06-1…
+$ a03             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ a04             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ a05             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ a06             <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ b01             <fct> Kota Denpasar, Kota Denpasar, Kota Denpasar, Kota Denpasar, Kota Denpasar, Kota Denpasar, Kota…
+$ b02             <fct> Denpasar Selatan, Denpasar Selatan, Denpasar Selatan, Denpasar Selatan, Denpasar Selatan, Denp…
+$ b03             <fct> Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemogan, Pemo…
+$ c01             <chr> "Ketut Harry Chistitanto", "Ni Komang Suarnity", "Billy Muhammad Iqbal", "I Gusti Made Mahayas…
+$ c02             <fct> 26-35, 26-35, 26-35, 18-25, 26-35, 26-35, 18-25, 18-25, 26-35, 26-35, 18-25, 26-35, 36-45, 36-…
+$ c03             <fct> D1/D2/D3/Sarjana, D1/D2/D3/Sarjana, D1/D2/D3/Sarjana, D1/D2/D3/Sarjana, D1/D2/D3/Sarjana, D1/D…
+$ c04             <fct> Laki-laki, Perempuan, Laki-laki, Laki-laki, Laki-laki, Laki-laki, Perempuan, Perempuan, Laki-l…
+$ c05             <fct> Karyawan swasta, Karyawan swasta, Karyawan swasta, Karyawan swasta, Lainnya, Karyawan swasta, …
+$ c05_lainnya     <chr> NA, NA, NA, NA, "Wiraswasta", NA, NA, NA, NA, NA, "Mahasiswa", NA, NA, NA, NA, NA, "Mahasiswa"…
+$ c06             <chr> "6000000", "5000000", "3500000", "3000000", "5000000", "4000000", "3200000", "2800000", "35000…
+$ c06_imp         <dbl> 6.0e+06, 5.0e+06, 3.5e+06, 3.0e+06, 5.0e+06, 4.0e+06, 3.2e+06, 2.8e+06, 3.5e+06, 4.0e+06, 2.0e…
+$ c06_imp_catatan <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ d01             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Tidak Setuju, Setuju, Agak Set…
+$ d02             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Sangat…
+$ d03             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Setuju, Setuju, S…
+$ d04             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Setuju, Setuju, S…
+$ d05             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Setuju, Setuju, S…
+$ d06             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Setuju, Tidak Set…
+$ d07             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Setuju, S…
+$ d08             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, Agak Setuju, Setu…
+$ d09             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ d10             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ d11             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Tidak Setuju, …
+$ e01             <fct> Baik, Baik, Baik, Baik, Baik, Baik, Baik, Baik, Baik, Baik, Baik, Baik, Sangat baik, Biasa, Ba…
+$ e02             <fct> Lainnya, Pemerintah daerah, Pemerintah daerah, Pemerintah daerah, Lainnya, Pemerintah daerah, …
+$ e02_lainnya     <chr> "Semua pihak", NA, NA, NA, "Semua pihak", NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ e03             <fct> Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Ti…
+$ e04             <chr> "kegiatan untuk mengatur dan menjaga hutan mangrove seterusnya dengan melihat dari sudut panda…
+$ e05_1           <fct> Tidak Tahu, Tidak Tahu, Tidak Tahu, Sedikit Tahu, Sedikit Tahu, Tidak Tahu, Sedikit Tahu, Sedi…
+$ e05_2           <fct> Tidak Tahu, Tidak Tahu, Tidak Tahu, Sedikit Tahu, Sedikit Tahu, Tidak Tahu, Sedikit Tahu, Tida…
+$ e05_3           <fct> Tidak Tahu, Tidak Tahu, Tidak Tahu, Sedikit Tahu, Sedikit Tahu, Tidak Tahu, Sedikit Tahu, Tida…
+$ e05_4           <fct> Tidak Tahu, Tidak Tahu, Tidak Tahu, Tidak Tahu, Tidak Tahu, Tidak Tahu, Tidak Tahu, Tidak Tahu…
+$ e06             <fct> Tidak Tahu, Tidak Tahu, Tidak Tahu, Sedikit Tahu, Sedikit Tahu, Tidak Tahu, Sedikit Tahu, Sedi…
+$ e07_1           <fct> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 3, 1, 1, 2, 1, 1, 2, 2, 2, 1, 2, 1, 1, 2, 2, 2, 2, 1, 1…
+$ e07_2           <fct> 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 3, 1, 1, 2, 1, 2, 2, 2, 2, 1, 1…
+$ e07_3           <fct> 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 3, 1, 2, 1, 1, 4, 2, 1, 1…
+$ e07_4           <fct> 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 4, 3, 7, 4, 1, 1, 1, 1, 1, 2, 8, 2, 3, 2, 6, 5, 1, 1, 1, 4, 3, 3…
+$ e07_5           <fct> 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 3, 3, 4, 2, 2, 1, 2, 2, 1, 1, 2, 1, 2, 3, 3, 3, 1, 1, 1, 5, 2, 4…
+$ e07_6           <fct> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 4, 2, 2, 1, 2, 1, 1, 1, 2, 2, 2, 3, 3, 2, 1, 1, 1, 5, 2, 6…
+$ e08_1           <fct> 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 2, 2, 1, 1, 1, 1, 3, 1, 1, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1…
+$ e08_2           <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1…
+$ e08_3           <fct> 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 3, 4, 2, 3, 1, 1, 3, 1, 1, 1, 3, 1, 2, 1, 2, 3, 2, 2, 2, 1, 3, 1…
+$ e08_4           <fct> 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 4, 1, 1, 1…
+$ e08_5           <fct> 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 2, 3, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 2, 2, 3…
+$ e08_6           <fct> 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 3, 2, 3, 3…
+$ f01_1           <fct> Ya, Ya, Ya, Ya, Ya, Ya, Ya, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Ya, Tidak…
+$ f01_2           <fct> Ya, Ya, Tidak, Ya, Tidak, Ya, Tidak, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, …
+$ f01_3           <fct> Tidak, Tidak, Tidak, Ya, Ya, Ya, Ya, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, …
+$ f01_4           <fct> Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tid…
+$ f01_5           <chr> "tidak", "tidak", "tidak", "ya", "ya", "ya", "ya", "ya", "tidak", "ya", "pernah", "pernah", "b…
+$ f02_1           <fct> Tidak, Tidak, Tidak, Ya, Ya, Ya, Ya, Ya, Tidak, Ya, Ya, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Ti…
+$ f02_2           <fct> Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Ya, Ya, Ya, Ya, Tidak, Tida…
+$ f02_3           <fct> Tidak, Ya, Ya, Ya, Ya, Ya, Ya, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak, Tidak,…
+$ f02_4           <fct> 4, NA, NA, NA, NA, NA, NA, NA, NA, NA, 1, 2, 2, 2, NA, NA, NA, NA, NA, NA, 2, NA, 2, NA, 1, 1,…
+$ f03             <chr> "wisata alam di hutan mangrove", "wisata alam di hutan mangrove", "wisata alam di hutan mangro…
+$ g01             <fct> Netral, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Setuju, Setuju…
+$ g02             <fct> Netral, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Netral, Setuju…
+$ g03             <fct> Netral, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Netral, Setuju…
+$ g04             <chr> "kegiatann pendidikan sadar lingkungann yang di mana kita terjun secara langsung untuk mengapl…
+$ h01             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Setuju, Setuju…
+$ h02             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ h03             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Sangat Setuju,…
+$ h04             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Tidak Setuju, …
+$ h05             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ h06             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Sangat Setuju,…
+$ h07             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Tidak Setuju, …
+$ h08             <fct> Konservasi lingkungan, Konservasi lingkungan, Konservasi lingkungan, Semuanya di atas, Konserv…
+$ h08_lainnya     <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ h09             <fct> Kampanye media sosial, Kampanye media sosial, Kampanye media sosial, Kampanye media sosial, Ka…
+$ h09_lainnya     <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ h10             <fct> Bulanan, Bulanan, Bulanan, Triwulan, Bulanan, Bulanan, Bulanan, Bulanan, Bulanan, Bulanan, Tah…
+$ h11             <fct> Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tert…
+$ h12             <fct> Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tert…
+$ h13             <fct> Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tertarik, Tert…
+$ h14             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ h15             <fct> Tidak Setuju, Tidak Setuju, Tidak Setuju, Tidak Setuju, Tidak Setuju, Tidak Setuju, Tidak Setu…
+$ h16             <fct> Setuju, Tidak Setuju, Netral, Setuju, Setuju, Netral, Setuju, Setuju, Netral, Setuju, Setuju, …
+$ h17             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Agak Setuju, S…
+$ h18             <fct> Setuju, Setuju, Setuju, Sangat Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju,…
+$ h19             <fct> Tidak Terlalu Rentan, Tidak Terlalu Rentan, Tidak Terpengaruh, Tidak Terlalu Rentan, Tidak Ter…
+$ h20             <fct> Tidak Terlalu Rentan, Tidak Terpengaruh, Tidak Terpengaruh, Tidak Terpengaruh, Rentan, Rentan,…
+$ h21             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Sangat…
+$ h22             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ h23             <chr> "serangan dan kuta", "serangan", "serangan", "serangan", "serangan", "serangan", "serangan", "…
+$ h24             <chr> "memberikan informasi yang menarik dan informatif serta kreatif untuk semua umur", "memberikan…
+$ i01             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Netral…
+$ i02             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i03             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i04             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Netral…
+$ i05             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i06             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i07             <fct> Setuju, Setuju, Netral, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Netral, Tidak …
+$ i08             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i09             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+$ i10             <fct> Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju, Setuju…
+
+> # Mangrove awareness as a nature-based solution ----
+> # items:
+> # h21: mangrove forest contirbutes to reduce the strength of tsunami waves along the coastline
+> # h22: mangrove forests are capable of mitigating coastal erosion
+> 
+> items <- df %>% dplyr::select(h21:h22)
+
+> levels(dfl$h21)
+[1] "Sangat Tidak Setuju" "Tidak Setuju"        "Netral"              "Setuju"              "Sangat Setuju"      
+
+> df %>% tabyl(h21)
+ h21   n    percent
+   2   7 0.01902174
+   3   7 0.01902174
+   4 272 0.73913043
+   5  82 0.22282609
+
+> df %>% tabyl(h22)
+ h22   n    percent
+   2   8 0.02173913
+   3  21 0.05706522
+   4 304 0.82608696
+   5  35 0.09510870
+
+> # internal consistency ----
+> #cronbach's alpha
+> items %>% cronbach
+$Alpha
+[1] 0.7326706
+
+$N
+[1] 368
+
+
+> #item total correlation
+> items %>% item.total
+  Variable Item.Total Alpha.Without   N
+1      h21  0.5808598           NaN 368
+2      h22  0.5808598           NaN 368
+
+> # generate variable ----
+> # using average score
+> dfl <- dfl %>% 
++   mutate(amasnbs = rowMeans(items))
+
+> attr(dfl$amasnbs,"label") <- "Mangrove awareness as a nature-based solution"
+
+> dfl$amasnbs %>% mean()
+[1] 4.080163
+
+> dfl$amasnbs %>% range()
+[1] 2 5
+
+> # Vulnerability of living place ----
+> # items:
+> # h19: in your opinion, is your residence vulnerable to tsunamis?
+> # h20: what is the condition of the coastal area near your residence as a result of shoreline erosion?
+> 
+> # reverse scale first
+> items <- df %>% dplyr::select(h19:h20) %>% 
++   mutate_all(~case_when(. == 1 ~ 5,
++                         . == 2 ~ 4,
++                         . == 3 ~ 3,
++                         . == 4 ~ 2,
++                         . == 5 ~ 1))
+
+> levels(dfl$h19)
+[1] "Sangat Rentan"        "Rentan"               "Tidak Terpengaruh"    "Tidak Terlalu Rentan" "Tidak Rentan"        
+
+> df %>% tabyl(h19)
+ h19   n    percent
+   1  17 0.04619565
+   2 185 0.50271739
+   3  13 0.03532609
+   4 110 0.29891304
+   5  43 0.11684783
+
+> df %>% tabyl(h20)
+ h20   n    percent
+   1   7 0.01902174
+   2 162 0.44021739
+   3  53 0.14402174
+   4 107 0.29076087
+   5  39 0.10597826
+
+> ### internal consistency ----
+> #cronbach's alpha
+> items %>% cronbach
+$Alpha
+[1] 0.6931253
+
+$N
+[1] 368
+
+
+> #item total correlation
+> items %>% item.total
+  Variable Item.Total Alpha.Without   N
+1      h19  0.5321564           NaN 368
+2      h20  0.5321564           NaN 368
+
+> # generate variable
+> # using average score
+> dfl <- dfl %>% 
++   mutate(vuln = rowMeans(items))
+
+> attr(dfl$vuln,"label") <- "Vulnerability of living place"
+
+> dfl$vuln %>% mean()
+[1] 3.019022
+
+> dfl$vuln %>% range()
+[1] 1 5
+
+> # Sociodemographics ----
+> # demographics (age,sex,education,occupation,area) ----
+> dfl %>% tabyl(c02)
+   c02  n    percent
+ 18-25 67 0.18206522
+ 26-35 75 0.20380435
+ 36-45 86 0.23369565
+ 46-55 84 0.22826087
+ 56-65 40 0.10869565
+   65+ 16 0.04347826
+
+> dfl %>% tabyl(c04)
+       c04   n   percent
+ Laki-laki 188 0.5108696
+ Perempuan 180 0.4891304
+
+> dfl %>% tabyl(c03)
+                  c03   n     percent
+ Tidak Sekolah Formal   5 0.013586957
+        Sekolah Dasar  36 0.097826087
+                  SMP  45 0.122282609
+                  SMA 190 0.516304348
+     D1/D2/D3/Sarjana  90 0.244565217
+        Pasca Sarjana   2 0.005434783
+
+> dfl %>% tabyl(c05)
+                 c05   n     percent
+ Tidak/belum bekerja   5 0.013586957
+              Petani   1 0.002717391
+             Nelayan  15 0.040760870
+     Karyawan swasta 132 0.358695652
+             ASN/PNS   2 0.005434783
+            Pedagang  89 0.241847826
+           Pensiunan   9 0.024456522
+    Ibu Rumah Tangga  48 0.130434783
+             Lainnya  67 0.182065217
+
+> dfl %>% tabyl(b02)
+              b02   n    percent
+             Kuta  20 0.05434783
+     Kuta Selatan 129 0.35054348
+ Denpasar Selatan 219 0.59510870
+
+> dfl <- dfl %>% 
++   mutate(age = case_when(c02 %in% c("56-65","65+") ~ "55+",
++                          TRUE ~ c02),
++          age = factor(age),
++ 
++          sex = ifelse(c04 == "Laki-laki",1,0),
++          sex = factor(sex, levels=0:1, labels = c("Female","Male")),
++          
++          # recode education into 3 categories
++          educ = case_when(c03 %in% c("Tidak Sekolah Formal","Sekolah Dasar") ~ 1,
++                           c03 %in% c("SMP","SMA") ~ 2,
++                           TRUE ~ 3),
++          educ = factor(educ,levels=1:3,labels=c("Primary or less","Secondary","Higher")),
++          
++          # recode occupation into 4 categories
++          occup = case_when(c05 %in% c("Petani","Nelayan","Pedagang") ~ 2,
++                            c05 %in% c("Karyawan swasta","ASN/PNS") ~ 3,
++                            c05 %in% c("Tidak/belum bekerja","Ibu Rumah Tangga","Pensiunan") ~ 1,
++                            TRUE ~ 4),
++          # Lainnya -> not employed
++          occup = ifelse(!is.na(c05_lainnya) & 
++                           c05_lainnya %in% c("Mahasiswa","Irt","Siswa","Kuliah"),
++                         1,occup),
++          # Lainnya -> trader
++          occup = ifelse(!is.na(c05_lainnya) & 
++                           c05_lainnya %in% c("Pedagang Ikan","Buruh Tani"),
++                         2,occup),
++          # Lainnya -> privately/gov/empl
++          occup = ifelse(!is.na(c05_lainnya) & 
++                           c05_lainnya %in% c("Pekerja Hotel"),
++                         3,occup),
++          occup = factor(occup,levels=1:4,labels=c("Not employed","Fisherman/farmer/trader",
++                                                   "Privately/government employed","Others")),
++          area = fct_relabel(b02, ~ifelse(str_detect(.,"Selatan"),
++                                          paste("South",str_remove(.," Selatan")),
++                                          .))
++          )
+
+> attr(dfl$age,"label") <- "Age (years)"
+
+> attr(dfl$sex,"label") <- "Sex"
+
+> attr(dfl$educ,"label") <- "Education"
+
+> attr(dfl$occup,"label") <- "Occupation"
+
+> attr(dfl$area, "label") <- "Sub-district"
+
+> dfl %>% tabyl(age)
+   age  n   percent
+ 18-25 67 0.1820652
+ 26-35 75 0.2038043
+ 36-45 86 0.2336957
+ 46-55 84 0.2282609
+   55+ 56 0.1521739
+
+> dfl %>% tabyl(sex)
+    sex   n   percent
+ Female 180 0.4891304
+   Male 188 0.5108696
+
+> dfl %>% tabyl(educ)
+            educ   n  percent
+ Primary or less  41 0.111413
+       Secondary 235 0.638587
+          Higher  92 0.250000
+
+> dfl %>% tabyl(occup)
+                         occup   n   percent
+                  Not employed  91 0.2472826
+       Fisherman/farmer/trader 107 0.2907609
+ Privately/government employed 135 0.3668478
+                        Others  35 0.0951087
+
+> dfl %>% tabyl(area)
+           area   n    percent
+           Kuta  20 0.05434783
+     South Kuta 129 0.35054348
+ South Denpasar 219 0.59510870
+
+> # Participation in coastal management activities & its driver ----
+> dfl <- dfl %>% 
++   mutate(
++     # dependent
++     cln_beach = f01_1, #bersih pantai
++     plnt_mngrv = f01_2, #menanam mangrove
++     cmpg_educ = f01_3, #
++     monev = f01_4, #monitoring-evaluasi
++ 
++     # driver
++     inform_plan = df$e05_2, #mengethui program/rencana khusus
++     inform_penal = df$e05_4, #mengetahui hukuman bagi pelanggar undang2
++     cst_zn = df$e08_6, #zonasi pesisir
++     exp_soc = f02_3, #pernah mengikuti pelatihan/sosialisasi prb
++   ) %>% 
++   # reverse factor levels & relabel/recode
++   mutate_at(
++     vars(cln_beach,plnt_mngrv,cmpg_educ,monev,exp_soc),
++     ~fct_rev(.) %>% fct_recode(.,"No" = "Tidak","Yes" = "Ya")
++   )
+
+> attr(dfl$cln_beach, "label") <- "Cleaning beach"
+
+> attr(dfl$plnt_mngrv, "label") <- "Planting mangroves"
+
+> attr(dfl$cmpg_educ, "label") <- "Campaign and education"
+
+> attr(dfl$monev, "label") <- "Monitoring and evaluation"
+
+> dfl %>% tabyl(cln_beach)
+ cln_beach   n   percent
+        No 183 0.4972826
+       Yes 185 0.5027174
+
+> dfl %>% tabyl(plnt_mngrv)
+ plnt_mngrv   n   percent
+         No 286 0.7771739
+        Yes  82 0.2228261
+
+> dfl %>% tabyl(cmpg_educ)
+ cmpg_educ   n   percent
+        No 295 0.8016304
+       Yes  73 0.1983696
+
+> dfl %>% tabyl(monev)
+ monev   n    percent
+    No 341 0.92663043
+   Yes  27 0.07336957
+
+> attr(dfl$inform_plan, "label") <- "Informed of the coastal management plans"
+
+> attr(dfl$inform_penal, "label") <- "Informed penalties for violations"
+
+> attr(dfl$cst_zn, "label") <- "Importance of coastal zoning"
+
+> attr(dfl$exp_soc, "label") <- "Experiencing in training/socialization related to DRR"
+
+> dfl %>% tabyl(inform_plan)
+ inform_plan   n     percent
+           1 218 0.592391304
+           2  79 0.214673913
+           3  13 0.035326087
+           4  57 0.154891304
+           5   1 0.002717391
+
+> dfl %>% tabyl(inform_penal)
+ inform_penal   n     percent
+            1 177 0.480978261
+            2  46 0.125000000
+            3  14 0.038043478
+            4 129 0.350543478
+            5   2 0.005434783
+
+> dfl %>% tabyl(cst_zn)
+ cst_zn   n    percent
+      1 152 0.41304348
+      2 113 0.30706522
+      3  64 0.17391304
+      4  35 0.09510870
+      5   4 0.01086957
+
+> dfl %>% tabyl(exp_soc)
+ exp_soc   n   percent
+      No 270 0.7336957
+     Yes  98 0.2663043
+
+> # save file ----
+> dfl <- dfl %>% 
++   dplyr::select(amasnbs:exp_soc,amasnbs_1 = h19, amasnbs_2 = h20, vuln_1 = h19, vuln_2 = h20)
+
+> saveRDS(dfl, file = sv_name)
+
+> # time end, system info
+> time_end <- Sys.time()
+
+> time_end
+[1] "2025-09-15 17:19:33 WIB"
+
+> time_exec <- time_end - time_start
+
+> time_exec
+Time difference of 1.054506 secs
+
+> # remove all objects which are created in current r script file
+> rm(list = setdiff(ls(), init_obj))

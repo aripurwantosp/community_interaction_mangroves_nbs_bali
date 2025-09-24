@@ -1,0 +1,380 @@
+
+> # R file for:
+> # Empirical evidence for asymptotic normal of OLS
+> # 
+> # For paper:
+> # 
+> # Authors of the paper:
+> # 
+> # Code by:
+> # Ari Purwanto Sarwo Prasojo
+> # 
+> # Date of this version:
+> # 2025/09/17
+> 
+> 
+> # initial objects
+> init_obj <- ls()
+
+> # time start, system info
+> time_start <- Sys.time()
+
+> time_start
+[1] "2025-09-19 08:01:29 WIB"
+
+> benchmarkme::get_cpu()
+	 Unable to detect your CPU.
+            Please raise an issue at https://github.com/csgillespie/benchmarkme
+$vendor_id
+[1] NA
+
+$model_name
+[1] NA
+
+$no_of_cores
+[1] 12
+
+
+> benchmarkme::get_ram()
+17 GB
+
+> sessionInfo()
+R version 4.3.3 (2024-02-29 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26100)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_Indonesia.utf8  LC_CTYPE=English_Indonesia.utf8    LC_MONETARY=English_Indonesia.utf8
+[4] LC_NUMERIC=C                       LC_TIME=English_Indonesia.utf8    
+
+time zone: Asia/Jakarta
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] here_1.0.1           sdcLog_0.5.1         writexl_1.5.4        broom.helpers_1.21.0 broom_1.0.9         
+ [6] ggstats_0.10.0       logistf_1.26.1       sandwich_3.1-1       lmtest_0.9-40        zoo_1.8-14          
+[11] ggeffects_2.3.1      performance_0.15.1   olsrr_0.6.1          multilevel_2.7.1     MASS_7.3-60.0.1     
+[16] nlme_3.1-164         psych_2.5.6          janitor_2.2.1        haven_2.5.5          lubridate_1.9.4     
+[21] forcats_1.0.0        stringr_1.5.1        dplyr_1.1.4          purrr_1.1.0          readr_2.1.5         
+[26] tidyr_1.3.1          tibble_3.3.0         ggplot2_3.5.2        tidyverse_2.0.0     
+
+loaded via a namespace (and not attached):
+ [1] DBI_1.2.3             Rdpack_2.6.4          mnormt_2.1.1          gridExtra_2.3        
+ [5] rlang_1.1.6           magrittr_2.0.3        snakecase_0.11.1      compiler_4.3.3       
+ [9] mgcv_1.9-3            systemfonts_1.2.3     vctrs_0.6.5           pkgconfig_2.0.3      
+[13] shape_1.4.6.1         backports_1.5.0       labeling_0.4.3        effectsize_1.0.1     
+[17] tzdb_0.5.0            nloptr_2.2.1          ragg_1.4.0            glmnet_4.1-10        
+[21] jomo_2.7-6            labelled_2.14.1       goftest_1.2-3         pan_1.9              
+[25] parallel_4.3.3        R6_2.6.1              stringi_1.8.7         RColorBrewer_1.1-3   
+[29] car_3.1-3             benchmarkme_1.0.8     boot_1.3-29           rpart_4.1.23         
+[33] estimability_1.5.1    Rcpp_1.1.0            iterators_1.0.14      parameters_0.28.1    
+[37] Matrix_1.6-5          splines_4.3.3         nnet_7.3-19           timechange_0.3.0     
+[41] tidyselect_1.2.1      effects_4.2-4         abind_1.4-8           doParallel_1.0.17    
+[45] codetools_0.2-19      lattice_0.22-5        bayestestR_0.17.0     withr_3.0.2          
+[49] benchmarkmeData_1.0.4 moments_0.14.1        survival_3.5-8        survey_4.4-2         
+[53] pillar_1.11.0         carData_3.0-5         mice_3.18.0           checkmate_2.3.3      
+[57] foreach_1.5.2         nortest_1.0-4         reformulas_0.4.1      insight_1.4.2        
+[61] generics_0.1.4        rprojroot_2.1.0       mathjaxr_1.8-0        hms_1.1.3            
+[65] scales_1.4.0          minqa_1.2.8           glue_1.8.0            tools_4.3.3          
+[69] data.table_1.17.8     lme4_1.1-37           grid_4.3.3            mitools_2.4          
+[73] rbibutils_2.3         cards_0.6.1           datawizard_1.2.0      colorspace_2.1-1     
+[77] formula.tools_1.7.1   Formula_1.2-5         cli_3.6.5             textshaping_1.0.1    
+[81] gtable_0.3.6          operator.tools_1.6.3  farver_2.1.2          lifecycle_1.0.4      
+[85] httr_1.4.7            mitml_0.4-5          
+
+> # saved name ----
+> sv_name <- here(tbl_path, "bootstrap_ols_asymptotic_evidence.xlsx")
+
+> sv_fig_name1 <- here(fig_path, "qqplot_ols_asymp_all.png")
+
+> sv_fig_name2 <- here(fig_path, "qqplot_ols_asymp_sk.png")
+
+> sv_fig_name3 <- here(fig_path, "qqplot_ols_asymp_sd.png")
+
+> # read data ----
+> dfl <- readRDS(here(dta_path,"dataset_for_analysis.rds"))
+
+> dfl_sk <- dfl %>% filter(area=="South Kuta")
+
+> dfl_sd <- dfl %>% filter(area=="South Denpasar")
+
+> # functions ----
+> # res_boot function in utils.R
+> 
+> # All ----
+> ## fit model ----
+> mdl_all <- lm(amasnbs ~ age + sex + educ + vuln + occup + area, data = dfl)
+
+> coef_all <- coef(mdl_all)
+
+> se_classic <- sqrt(diag(vcov(mdl_all)))
+
+> ## compare classical se and robust se ----
+> se_rob <- sqrt(diag(vcovHC(mdl_all, type = "HC1")))
+
+> se_compare_all <- data.frame(
++   term = names(coef_all),
++   se_classic = se_classic,
++   se_robust = se_rob,
++   difference = se_classic - se_rob
++ )
+
+> rownames(se_compare_all) <- NULL
+
+> print(se_compare_all)
+                                 term se_classic  se_robust    difference
+1                         (Intercept) 0.16544885 0.15688234  0.0085665051
+2                            age26-35 0.07521055 0.07168483  0.0035257205
+3                            age36-45 0.07312589 0.07785304 -0.0047271510
+4                            age46-55 0.07493801 0.06870046  0.0062375492
+5                              age55+ 0.08882527 0.08367296  0.0051523164
+6                             sexMale 0.04945679 0.04591453  0.0035422604
+7                       educSecondary 0.08490427 0.09472986 -0.0098255942
+8                          educHigher 0.09239710 0.09570245 -0.0033053590
+9                                vuln 0.02287203 0.02260120  0.0002708339
+10       occupFisherman/farmer/trader 0.06622997 0.06934711 -0.0031171398
+11 occupPrivately/government employed 0.06619102 0.06591213  0.0002788859
+12                        occupOthers 0.09188376 0.08222788  0.0096558828
+13                     areaSouth Kuta 0.10549988 0.10407913  0.0014207471
+14                 areaSouth Denpasar 0.10250359 0.09390828  0.0085953089
+
+> ## bootstrap: distribution for estimator ----
+> boot_all <- res_boot(mdl_all, B = 1000)
+
+> boot_sum_t_all <- data.frame(
++   term = names(coef_all),
++   mean = apply(boot_all$boot_t, 2, mean),
++   sd = apply(boot_all$boot_t, 2, sd),
++   skew = apply(boot_all$boot_t, 2, moments::skewness)
++ )
+
+> # South Kuta ----
+> ## fit model ----
+> mdl_sk <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sk)
+
+> coef_sk <- coef(mdl_sk)
+
+> se_classic <- sqrt(diag(vcov(mdl_sk)))
+
+> ## compare classical se and robust se ----
+> se_rob <- sqrt(diag(vcovHC(mdl_sk, type = "HC1")))
+
+> se_compare_sk <- data.frame(
++   term = names(coef_sk),
++   se_classic = se_classic,
++   se_robust = se_rob,
++   difference = se_classic - se_rob
++ )
+
+> rownames(se_compare_sk) <- NULL
+
+> print(se_compare_sk)
+                                 term se_classic  se_robust   difference
+1                         (Intercept) 0.31047670 0.28665954  0.023817170
+2                            age26-35 0.18040519 0.17304259  0.007362599
+3                            age36-45 0.17314517 0.17534384 -0.002198666
+4                            age46-55 0.17157944 0.14708707  0.024492374
+5                              age55+ 0.21062574 0.19919487  0.011430868
+6                             sexMale 0.12405090 0.12209848  0.001952414
+7                       educSecondary 0.18841205 0.22424082 -0.035828768
+8                          educHigher 0.21671643 0.23103217 -0.014315740
+9                                vuln 0.04802199 0.04391544  0.004106555
+10       occupFisherman/farmer/trader 0.17562590 0.19700398 -0.021378085
+11 occupPrivately/government employed 0.18310187 0.18123806  0.001863813
+12                        occupOthers 0.19499358 0.18447673  0.010516852
+
+> ## bootstrap: distribution for estimator ----
+> boot_sk <- res_boot(mdl_sk, B = 1000)
+
+> boot_sum_t_sk <- data.frame(
++   term = names(coef_sk),
++   mean = apply(boot_sk$boot_t, 2, mean),
++   sd = apply(boot_sk$boot_t, 2, sd),
++   skew = apply(boot_sk$boot_t, 2, moments::skewness)
++ )
+
+> # South Denpasar ----
+> ## fit model ----
+> mdl_sd <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sd)
+
+> coef_sd <- coef(mdl_sd)
+
+> se_classic <- sqrt(diag(vcov(mdl_sd)))
+
+> ## compare classical se and robust se ----
+> se_rob <- sqrt(diag(vcovHC(mdl_sd, type = "HC1")))
+
+> se_compare_sd <- data.frame(
++   term = names(coef_sd),
++   se_classic = se_classic,
++   se_robust = se_rob,
++   difference = se_classic - se_rob
++ )
+
+> rownames(se_compare_sd) <- NULL
+
+> print(se_compare_sd)
+                                 term se_classic  se_robust   difference
+1                         (Intercept) 0.11530814 0.09470831 2.059983e-02
+2                            age26-35 0.06585921 0.05743421 8.424997e-03
+3                            age36-45 0.06527134 0.05608996 9.181374e-03
+4                            age46-55 0.06708517 0.06702721 5.795925e-05
+5                              age55+ 0.07860749 0.07449853 4.108956e-03
+6                             sexMale 0.04432779 0.04355302 7.747725e-04
+7                       educSecondary 0.07639151 0.06721311 9.178401e-03
+8                          educHigher 0.08187901 0.07706307 4.815941e-03
+9                                vuln 0.02233254 0.02220186 1.306729e-04
+10       occupFisherman/farmer/trader 0.05545652 0.05373094 1.725578e-03
+11 occupPrivately/government employed 0.05696362 0.05563724 1.326381e-03
+12                        occupOthers 0.09786763 0.06441036 3.345727e-02
+
+> ## bootstrap: distribution for estimator ----
+> boot_sd <- res_boot(mdl_sd, B = 1000)
+
+> boot_sum_t_sd <- data.frame(
++   term = names(coef_sd),
++   mean = apply(boot_sd$boot_t, 2, mean),
++   sd = apply(boot_sd$boot_t, 2, sd),
++   skew = apply(boot_sd$boot_t, 2, moments::skewness)
++ )
+
+> # combine t-stat and make long data frame ----
+> # variable label
+> var_label <- tidy_plus_plus(mdl_all)
+
+> var_label <- bind_rows(
++   data.frame(term = "(Intercept)", var_label = "Intercept", label=""),
++   var_label %>% 
++   dplyr::select(term,var_label,label)
++ ) %>% 
++   mutate(
++     id_varlab = 1:n(),
++     label = ifelse(term == "vuln","",label),
++     varlab = paste0(var_label,":",label),
++     varlab = factor(id_varlab,labels=varlab)
++   ) %>% 
++   dplyr::select(id_varlab, varlab, term)
+
+> # long data frame
+> df_long <- list(
++   All = boot_all$boot_t,
++   `South Kuta` = boot_sk$boot_t,
++   `South Denpasar` = boot_sd$boot_t
++ ) %>% 
++   map(.,
++     ~{
++       mutate(.,id = 1) %>% 
++         pivot_longer(-id, names_to = "term", values_to = "t")
++     }
++   ) %>% 
++   bind_rows(.id = "area") %>% 
++   dplyr::select(-id) %>% 
++   left_join(var_label, by = "term")
+
+> # normality formal test using komogorov-smirnov ----
+> ks_t <- df_long %>% 
++   group_by(area,term) %>% 
++   group_split(.keep=TRUE) %>% 
++   set_names(
++     df_long %>% 
++       group_by(area,term) %>% 
++       group_keys() %>% 
++       apply(1, paste, collapse = "_")
++   ) %>% 
++   map(.,
++     ~{
++       ks <- ks.test(.$t,"pnorm",mean=0,sd=1)
++       data.frame(stat = ks$statistic, pvalue = ks$p.value)
++     }
++   ) %>% 
++   bind_rows(.id = "area_term") %>% 
++   separate(col = "area_term", into=c("area","term"),sep = "_") %>% 
++   left_join(var_label, by = "term") %>% 
++   arrange(area, id_varlab) %>% 
++   dplyr::select(area, varlab, stat, pvalue)
+
+> # save output to excel ----
+> writexl::write_xlsx(
++   x = list(
++     se_all = se_compare_all,
++     boot_all = boot_sum_t_all,
++     se_sk = se_compare_sk,
++     boot_sk = boot_sum_t_sk,
++     se_sd = se_compare_sd,
++     boot_sd = boot_sum_t_sd,
++     ks_test_t = ks_t
++   ),
++   path = sv_name
++ )
+
+> # QQ plot ----
+> # all
+> df_long %>% filter(area == "All") %>% 
++   ggplot(aes(sample=t)) +
++   stat_qq(distribution = qnorm) + stat_qq_line(distribution = qnorm) +
++   labs(x = "Theoretical quantiles", y = "Sample quantiles") +
++   facet_wrap(varlab ~ ., ncol = 3) +
++   theme_bw() +
++   theme(
++     panel.grid = element_blank()
++   )
+
+> ggsave(sv_fig_name1, width = 8, height = 7.5, units = "in", dpi = 300)
+
+> # south kuta
+> df_long %>% filter(area == "South Kuta") %>% 
++   ggplot(aes(sample=t)) +
++   stat_qq(distribution = qnorm) + stat_qq_line(distribution = qnorm) +
++   labs(x = "Theoretical quantiles", y = "Sample quantiles") +
++   facet_wrap(varlab ~ ., ncol = 3) +
++   theme_bw() +
++   theme(
++     panel.grid = element_blank()
++   )
+
+> ggsave(sv_fig_name2, width = 8, height = 6, units = "in", dpi = 300)
+
+> # south denpasar
+> df_long %>% filter(area == "South Denpasar") %>% 
++   ggplot(aes(sample=t)) +
++   stat_qq(distribution = qnorm) + stat_qq_line(distribution = qnorm) +
++   labs(x = "Theoretical quantiles", y = "Sample quantiles") +
++   facet_wrap(varlab ~ ., ncol = 3) +
++   theme_bw() +
++   theme(
++     panel.grid = element_blank()
++   )
+
+> ggsave(sv_fig_name3, width = 8, height = 6, units = "in", dpi = 300)
+
+> # df_plt %>% filter(area == "All") %>% 
+> #   ggplot(aes(x = t)) +
+> #   geom_histogram(aes(y = after_stat(density)), bins = 30, color="white") +
+> #   # geom_density() +
+> #   stat_function(fun = dnorm, args = list(mean = 0, sd = 1), linetype="dashed") +
+> #   facet_wrap(varlab ~ .) +
+> #   theme_bw() +
+> #   theme(
+> #     panel.grid = element_blank()
+> #   )
+> 
+> 
+> # time end, system info
+> time_end <- Sys.time()
+
+> time_end
+[1] "2025-09-19 08:01:42 WIB"
+
+> time_exec <- time_end - time_start
+
+> time_exec
+Time difference of 13.4061 secs
+
+> # remove all objects which are created in current r script file
+> rm(list = setdiff(ls(), init_obj))

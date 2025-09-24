@@ -20,7 +20,7 @@
 > time_start <- Sys.time()
 
 > time_start
-[1] "2025-09-15 17:19:33 WIB"
+[1] "2025-09-19 10:04:14 WIB"
 
 > benchmarkme::get_cpu()
 	 Unable to detect your CPU.
@@ -36,7 +36,7 @@ $no_of_cores
 
 
 > benchmarkme::get_ram()
-68.4 GB
+17 GB
 
 > sessionInfo()
 R version 4.3.3 (2024-02-29 ucrt)
@@ -57,28 +57,36 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] here_1.0.1           sdcLog_0.5.1         broom.helpers_1.21.0 broom_1.0.8          ggstats_0.10.0      
- [6] logistf_1.26.1       sandwich_3.1-1       lmtest_0.9-40        zoo_1.8-14           ggeffects_2.3.1     
-[11] performance_0.15.0   olsrr_0.6.1          multilevel_2.7       MASS_7.3-60.0.1      nlme_3.1-164        
-[16] psych_2.5.6          janitor_2.2.1        haven_2.5.5          lubridate_1.9.4      forcats_1.0.0       
-[21] stringr_1.5.1        dplyr_1.1.4          purrr_1.1.0          readr_2.1.5          tidyr_1.3.1         
-[26] tibble_3.3.0         ggplot2_3.5.2        tidyverse_2.0.0     
+ [1] here_1.0.1           sdcLog_0.5.1         writexl_1.5.4        broom.helpers_1.21.0 broom_1.0.9         
+ [6] ggstats_0.10.0       logistf_1.26.1       sandwich_3.1-1       lmtest_0.9-40        zoo_1.8-14          
+[11] ggeffects_2.3.1      performance_0.15.1   olsrr_0.6.1          multilevel_2.7.1     MASS_7.3-60.0.1     
+[16] nlme_3.1-164         psych_2.5.6          janitor_2.2.1        haven_2.5.5          lubridate_1.9.4     
+[21] forcats_1.0.0        stringr_1.5.1        dplyr_1.1.4          purrr_1.1.0          readr_2.1.5         
+[26] tidyr_1.3.1          tibble_3.3.0         ggplot2_3.5.2        tidyverse_2.0.0     
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.2.1      farver_2.1.2          mathjaxr_1.8-0        rpart_4.1.23          timechange_0.3.0     
- [6] lifecycle_1.0.4       survival_3.5-8        magrittr_2.0.3        compiler_4.3.3        rlang_1.1.6          
-[11] tools_4.3.3           data.table_1.17.8     mnormt_2.1.1          RColorBrewer_1.1-3    abind_1.4-8          
-[16] withr_3.0.2           nnet_7.3-19           grid_4.3.3            jomo_2.7-6            mice_3.18.0          
-[21] scales_1.4.0          iterators_1.0.14      insight_1.4.2         cli_3.6.5             reformulas_0.4.1     
-[26] generics_0.1.4        httr_1.4.7            tzdb_0.5.0            minqa_1.2.8           operator.tools_1.6.3 
-[31] splines_4.3.3         parallel_4.3.3        vctrs_0.6.5           boot_1.3-29           glmnet_4.1-10        
-[36] Matrix_1.6-5          benchmarkme_1.0.8     carData_3.0-5         car_3.1-3             hms_1.1.3            
-[41] mitml_0.4-5           Formula_1.2-5         nortest_1.0-4         foreach_1.5.2         goftest_1.2-3        
-[46] benchmarkmeData_1.0.4 glue_1.8.0            nloptr_2.2.1          pan_1.9               codetools_0.2-19     
-[51] stringi_1.8.7         gtable_0.3.6          shape_1.4.6.1         lme4_1.1-37           pillar_1.11.0        
-[56] R6_2.6.1              Rdpack_2.6.4          formula.tools_1.7.1   doParallel_1.0.17     rprojroot_2.1.0      
-[61] lattice_0.22-5        rbibutils_2.3         backports_1.5.0       snakecase_0.11.1      Rcpp_1.1.0           
-[66] checkmate_2.3.2       gridExtra_2.3         mgcv_1.9-1            pkgconfig_2.0.3      
+ [1] DBI_1.2.3             Rdpack_2.6.4          mnormt_2.1.1          gridExtra_2.3        
+ [5] rlang_1.1.6           magrittr_2.0.3        snakecase_0.11.1      compiler_4.3.3       
+ [9] mgcv_1.9-3            systemfonts_1.2.3     vctrs_0.6.5           pkgconfig_2.0.3      
+[13] shape_1.4.6.1         backports_1.5.0       labeling_0.4.3        effectsize_1.0.1     
+[17] tzdb_0.5.0            nloptr_2.2.1          ragg_1.4.0            glmnet_4.1-10        
+[21] jomo_2.7-6            labelled_2.14.1       goftest_1.2-3         pan_1.9              
+[25] parallel_4.3.3        R6_2.6.1              stringi_1.8.7         RColorBrewer_1.1-3   
+[29] car_3.1-3             benchmarkme_1.0.8     boot_1.3-29           rpart_4.1.23         
+[33] estimability_1.5.1    Rcpp_1.1.0            iterators_1.0.14      parameters_0.28.1    
+[37] Matrix_1.6-5          splines_4.3.3         nnet_7.3-19           timechange_0.3.0     
+[41] tidyselect_1.2.1      effects_4.2-4         abind_1.4-8           doParallel_1.0.17    
+[45] codetools_0.2-19      lattice_0.22-5        bayestestR_0.17.0     withr_3.0.2          
+[49] benchmarkmeData_1.0.4 moments_0.14.1        survival_3.5-8        survey_4.4-2         
+[53] pillar_1.11.0         carData_3.0-5         mice_3.18.0           checkmate_2.3.3      
+[57] foreach_1.5.2         nortest_1.0-4         reformulas_0.4.1      insight_1.4.2        
+[61] generics_0.1.4        rprojroot_2.1.0       mathjaxr_1.8-0        hms_1.1.3            
+[65] scales_1.4.0          minqa_1.2.8           glue_1.8.0            tools_4.3.3          
+[69] data.table_1.17.8     lme4_1.1-37           grid_4.3.3            mitools_2.4          
+[73] rbibutils_2.3         cards_0.6.1           datawizard_1.2.0      colorspace_2.1-1     
+[77] formula.tools_1.7.1   Formula_1.2-5         cli_3.6.5             textshaping_1.0.1    
+[81] gtable_0.3.6          operator.tools_1.6.3  farver_2.1.2          lifecycle_1.0.4      
+[85] httr_1.4.7            mitml_0.4-5          
 
 > # saved name ----
 > sv_name <- here(dta_path, "dataset_for_analysis.rds")
@@ -142,42 +150,54 @@ Anderson-Darling         12.6746         0.0000
  Prob > Chi2   =    1.877701e-12 
 
 > # model summary with robust se
-> coeftest(mdl_ols, vcov = vcovHC(mdl_ols, "HC0"))
+> coeftest(mdl_ols, vcov = vcovHC(mdl_ols, "HC1"))
 
 t test of coefficients:
 
                                     Estimate Std. Error t value  Pr(>|t|)    
-(Intercept)                         4.244395   0.153869 27.5844 < 2.2e-16 ***
-age26-35                           -0.065399   0.070308 -0.9302 0.3529154    
-age36-45                           -0.099116   0.076358 -1.2980 0.1951178    
-age46-55                           -0.033029   0.067381 -0.4902 0.6243091    
-age55+                             -0.018845   0.082066 -0.2296 0.8185124    
-sexMale                             0.078877   0.045033  1.7516 0.0807166 .  
-educSecondary                       0.055932   0.092910  0.6020 0.5475616    
-educHigher                          0.121672   0.093864  1.2963 0.1957320    
-vuln                                0.031068   0.022167  1.4016 0.1619251    
-occupFisherman/farmer/trader       -0.010211   0.068015 -0.1501 0.8807477    
-occupPrivately/government employed  0.132195   0.064646  2.0449 0.0416037 *  
-occupOthers                         0.051654   0.080649  0.6405 0.5222766    
-areaSouth Kuta                     -0.524591   0.102080 -5.1390 4.575e-07 ***
-areaSouth Denpasar                 -0.309369   0.092105 -3.3589 0.0008677 ***
+(Intercept)                         4.244395   0.156882 27.0546 < 2.2e-16 ***
+age26-35                           -0.065399   0.071685 -0.9123  0.362228    
+age36-45                           -0.099116   0.077853 -1.2731  0.203814    
+age46-55                           -0.033029   0.068700 -0.4808  0.630979    
+age55+                             -0.018845   0.083673 -0.2252  0.821939    
+sexMale                             0.078877   0.045915  1.7179  0.086687 .  
+educSecondary                       0.055932   0.094730  0.5904  0.555276    
+educHigher                          0.121672   0.095702  1.2714  0.204436    
+vuln                                0.031068   0.022601  1.3746  0.170114    
+occupFisherman/farmer/trader       -0.010211   0.069347 -0.1472  0.883021    
+occupPrivately/government employed  0.132195   0.065912  2.0056  0.045657 *  
+occupOthers                         0.051654   0.082228  0.6282  0.530294    
+areaSouth Kuta                     -0.524591   0.104079 -5.0403 7.431e-07 ***
+areaSouth Denpasar                 -0.309369   0.093908 -3.2944  0.001086 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-> waldtest(
-+   update(mdl_ols, . ~ 1), mdl_ols,
-+   vcov = vcovHC(mdl_ols, type = "HC0"), test = "F"
-+ )
-Wald test
+> # using  bootstrap se
+> boot_cov <- cov_boot(mdl_ols)
 
-Model 1: amasnbs ~ 1
-Model 2: amasnbs ~ age + sex + educ + vuln + occup + area
-  Res.Df Df      F    Pr(>F)    
-1    367                        
-2    354 13 3.1875 0.0001495 ***
+> coeftest(mdl_ols, vcov = boot_cov)
+
+t test of coefficients:
+
+                                    Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)                         4.244395   0.157333 26.9772 < 2.2e-16 ***
+age26-35                           -0.065399   0.072315 -0.9044  0.366423    
+age36-45                           -0.099116   0.078068 -1.2696  0.205061    
+age46-55                           -0.033029   0.068465 -0.4824  0.629805    
+age55+                             -0.018845   0.085209 -0.2212  0.825096    
+sexMale                             0.078877   0.044604  1.7684  0.077859 .  
+educSecondary                       0.055932   0.096220  0.5813  0.561416    
+educHigher                          0.121672   0.096544  1.2603  0.208398    
+vuln                                0.031068   0.023538  1.3199  0.187722    
+occupFisherman/farmer/trader       -0.010211   0.066885 -0.1527  0.878748    
+occupPrivately/government employed  0.132195   0.063474  2.0827  0.038000 *  
+occupOthers                         0.051654   0.080451  0.6421  0.521254    
+areaSouth Kuta                     -0.524591   0.105077 -4.9925 9.374e-07 ***
+areaSouth Denpasar                 -0.309369   0.095915 -3.2255  0.001375 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
 
 > model_performance(mdl_ols)
 # Indices of model performance
@@ -188,10 +208,7 @@ AIC   |  AICc |   BIC |    R2 | R2 (adj.) |  RMSE | Sigma
 
 > ## south kuta ----
 > # fit model
-> mdl_ols_sk <- lm(
-+   amasnbs ~ age + sex + educ + vuln + occup, 
-+   data = dfl %>% filter(area=="South Kuta")
-+ )
+> mdl_ols_sk <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sk)
 
 > # check assumption
 > check_collinearity(mdl_ols_sk)
@@ -235,40 +252,50 @@ Anderson-Darling          2.4053         0.0000
  Prob > Chi2   =    0.0001446537 
 
 > # model summary with robust se
-> coeftest(mdl_ols_sk, vcov = vcovHC(mdl_ols_sk, "HC0"))
+> coeftest(mdl_ols_sk, vcov = vcovHC(mdl_ols_sk, "HC1"))
 
 t test of coefficients:
 
                                       Estimate  Std. Error t value Pr(>|t|)    
-(Intercept)                         3.74147996  0.27300114 13.7050  < 2e-16 ***
-age26-35                           -0.14199617  0.16479768 -0.8616  0.39065    
-age36-45                           -0.21124688  0.16698928 -1.2650  0.20837    
-age46-55                           -0.13680534  0.14007885 -0.9766  0.33077    
-age55+                             -0.14485700  0.18970388 -0.7636  0.44665    
-sexMale                             0.17025732  0.11628089  1.4642  0.14582    
-educSecondary                      -0.04462148  0.21355648 -0.2089  0.83485    
-educHigher                          0.20868219  0.22002424  0.9485  0.34485    
-vuln                                0.02159926  0.04182301  0.5164  0.60652    
-occupFisherman/farmer/trader       -0.00047435  0.18761739 -0.0025  0.99799    
-occupPrivately/government employed  0.29270273  0.17260266  1.6958  0.09258 .  
-occupOthers                         0.18050520  0.17568701  1.0274  0.30634    
+(Intercept)                         3.74147996  0.28665954 13.0520   <2e-16 ***
+age26-35                           -0.14199617  0.17304259 -0.8206   0.4136    
+age36-45                           -0.21124688  0.17534384 -1.2048   0.2307    
+age46-55                           -0.13680534  0.14708707 -0.9301   0.3542    
+age55+                             -0.14485700  0.19919487 -0.7272   0.4685    
+sexMale                             0.17025732  0.12209848  1.3944   0.1658    
+educSecondary                      -0.04462148  0.22424082 -0.1990   0.8426    
+educHigher                          0.20868219  0.23103217  0.9033   0.3682    
+vuln                                0.02159926  0.04391544  0.4918   0.6238    
+occupFisherman/farmer/trader       -0.00047435  0.19700398 -0.0024   0.9981    
+occupPrivately/government employed  0.29270273  0.18123806  1.6150   0.1090    
+occupOthers                         0.18050520  0.18447673  0.9785   0.3299    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-> waldtest(
-+   update(mdl_ols_sk, . ~ 1), mdl_ols_sk,
-+   vcov = vcovHC(mdl_ols_sk, type = "HC0"), test = "F"
-+ )
-Wald test
+> # using  bootstrap se
+> boot_cov <- cov_boot(mdl_ols_sk)
 
-Model 1: amasnbs ~ 1
-Model 2: amasnbs ~ age + sex + educ + vuln + occup
-  Res.Df Df      F  Pr(>F)  
-1    128                    
-2    117 11 2.1806 0.01987 *
+> coeftest(mdl_ols_sk, vcov = boot_cov)
+
+t test of coefficients:
+
+                                      Estimate  Std. Error t value Pr(>|t|)    
+(Intercept)                         3.74147996  0.31395187 11.9174   <2e-16 ***
+age26-35                           -0.14199617  0.17598583 -0.8069   0.4214    
+age36-45                           -0.21124688  0.17801433 -1.1867   0.2378    
+age46-55                           -0.13680534  0.14988940 -0.9127   0.3633    
+age55+                             -0.14485700  0.20175788 -0.7180   0.4742    
+sexMale                             0.17025732  0.11895275  1.4313   0.1550    
+educSecondary                      -0.04462148  0.24245548 -0.1840   0.8543    
+educHigher                          0.20868219  0.24969669  0.8357   0.4050    
+vuln                                0.02159926  0.04608534  0.4687   0.6402    
+occupFisherman/farmer/trader       -0.00047435  0.20190331 -0.0023   0.9981    
+occupPrivately/government employed  0.29270273  0.18631469  1.5710   0.1189    
+occupOthers                         0.18050520  0.19458653  0.9276   0.3555    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
 
 > model_performance(mdl_ols_sk)
 # Indices of model performance
@@ -278,10 +305,7 @@ AIC   |  AICc |   BIC |    R2 | R2 (adj.) |  RMSE | Sigma
 242.5 | 245.6 | 279.6 | 0.161 |     0.082 | 0.560 | 0.588
 
 > ## south denpasar ----
-> mdl_ols_sd <- lm(
-+   amasnbs ~ age + sex + educ + vuln + occup, 
-+   data = dfl %>% filter(area=="South Denpasar")
-+ )
+> mdl_ols_sd <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sd)
 
 > # check assumption
 > check_collinearity(mdl_ols_sd)
@@ -325,38 +349,50 @@ Anderson-Darling         18.2118         0.0000
  Prob > Chi2   =    1.124936e-06 
 
 > # model summary with robust se
-> lmtest::coeftest(mdl_ols_sd, vcov = vcovHC(mdl_ols_sd, "HC0"))
+> coeftest(mdl_ols_sd, vcov = vcovHC(mdl_ols_sd, "HC1"))
 
 t test of coefficients:
 
                                      Estimate Std. Error t value Pr(>|t|)    
-(Intercept)                         3.7883748  0.0920770 41.1435  < 2e-16 ***
-age26-35                            0.0031828  0.0558385  0.0570  0.95460    
-age36-45                            0.0233597  0.0545316  0.4284  0.66883    
-age46-55                            0.0916030  0.0651650  1.4057  0.16131    
-age55+                              0.1433122  0.0724287  1.9787  0.04918 *  
-sexMale                            -0.0138476  0.0423430 -0.3270  0.74397    
-educSecondary                       0.1557141  0.0653457  2.3829  0.01808 *  
-educHigher                          0.1300944  0.0749220  1.7364  0.08398 .  
-vuln                                0.0523886  0.0215850  2.4271  0.01608 *  
-occupFisherman/farmer/trader       -0.0001773  0.0522381 -0.0034  0.99730    
-occupPrivately/government employed  0.0381624  0.0540915  0.7055  0.48128    
-occupOthers                        -0.0018739  0.0626208 -0.0299  0.97616    
+(Intercept)                         3.7883748  0.0947083 40.0004  < 2e-16 ***
+age26-35                            0.0031828  0.0574342  0.0554  0.95586    
+age36-45                            0.0233597  0.0560900  0.4165  0.67750    
+age46-55                            0.0916030  0.0670272  1.3667  0.17322    
+age55+                              0.1433122  0.0744985  1.9237  0.05576 .  
+sexMale                            -0.0138476  0.0435530 -0.3179  0.75085    
+educSecondary                       0.1557141  0.0672131  2.3167  0.02150 *  
+educHigher                          0.1300944  0.0770631  1.6882  0.09289 .  
+vuln                                0.0523886  0.0222019  2.3597  0.01922 *  
+occupFisherman/farmer/trader       -0.0001773  0.0537309 -0.0033  0.99737    
+occupPrivately/government employed  0.0381624  0.0556372  0.6859  0.49353    
+occupOthers                        -0.0018739  0.0644104 -0.0291  0.97682    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 
-> waldtest(
-+   update(mdl_ols_sd, . ~ 1), mdl_ols_sd,
-+   vcov = vcovHC(mdl_ols_sd, type = "HC0"), test = "F"
-+ )
-Wald test
+> # using  bootstrap se
+> boot_cov <- cov_boot(mdl_ols_sd)
 
-Model 1: amasnbs ~ 1
-Model 2: amasnbs ~ age + sex + educ + vuln + occup
-  Res.Df Df      F Pr(>F)
-1    218                 
-2    207 11 1.3033 0.2243
+> coeftest(mdl_ols_sd, vcov = boot_cov)
+
+t test of coefficients:
+
+                                     Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                         3.7883748  0.0949707 39.8899  < 2e-16 ***
+age26-35                            0.0031828  0.0588197  0.0541  0.95690    
+age36-45                            0.0233597  0.0569995  0.4098  0.68236    
+age46-55                            0.0916030  0.0666551  1.3743  0.17084    
+age55+                              0.1433122  0.0738707  1.9400  0.05373 .  
+sexMale                            -0.0138476  0.0431205 -0.3211  0.74843    
+educSecondary                       0.1557141  0.0696018  2.2372  0.02634 *  
+educHigher                          0.1300944  0.0776039  1.6764  0.09517 .  
+vuln                                0.0523886  0.0218970  2.3925  0.01763 *  
+occupFisherman/farmer/trader       -0.0001773  0.0544768 -0.0033  0.99741    
+occupPrivately/government employed  0.0381624  0.0570456  0.6690  0.50425    
+occupOthers                        -0.0018739  0.0683071 -0.0274  0.97814    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
 
 > model_performance(mdl_ols_sd)
 # Indices of model performance
@@ -376,7 +412,7 @@ AIC   |  AICc |   BIC |    R2 | R2 (adj.) |  RMSE | Sigma
 +     xlevels=list(vuln=c(1.5, 3, 4.5)),
 +     # robust se
 +     vcov = vcovHC,
-+     type = "HC0"
++     type = "HC1"
 +   ),
 +   type = "faceted",
 +   vline = FALSE,
@@ -387,7 +423,7 @@ AIC   |  AICc |   BIC |    R2 | R2 (adj.) |  RMSE | Sigma
 + ) +
 +   # labs(title="Awareness of mangrove as nature based solution") +
 +   # ggplot2::scale_y_discrete(labels = scales::label_wrap(15)) +
-+   theme(axis.text = element_text(size=10,color="black"))
++   theme(axis.text = element_text(size=9,color="black"))
 
 > ggsave(sv_fig_name1, width = 8.3, height = 10, units = "in", dpi = 300)
 
@@ -659,57 +695,57 @@ Low Correlation
 +     performance::check_collinearity(.) %>% 
 +       as.data.frame() %>% 
 +       pull(VIF) %>% 
-+       mean(.)
++       max(.)
 +   }
 +   ) %>% 
 +   set_names(pairs$mdl_form)
 $`cln_beach ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.349679
+[1] 1.737786
 
 $`plnt_mngrv ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.363519
+[1] 1.758808
 
 $`cmpg_educ ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.398614
+[1] 1.882901
 
 $`monev ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.286575
+[1] 1.577302
 
 $`cln_beach ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.3675
+[1] 1.720738
 
 $`plnt_mngrv ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.362925
+[1] 1.697729
 
 $`cmpg_educ ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.380428
+[1] 1.795919
 
 $`monev ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.257577
+[1] 1.509862
 
 $`cln_beach ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.350555
+[1] 1.717512
 
 $`plnt_mngrv ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.346671
+[1] 1.66361
 
 $`cmpg_educ ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.346886
+[1] 1.692751
 
 $`monev ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.257373
+[1] 1.507798
 
 $`cln_beach ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.344475
+[1] 1.704819
 
 $`plnt_mngrv ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.430917
+[1] 1.81326
 
 $`cmpg_educ ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.445852
+[1] 1.895122
 
 $`monev ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.430283
+[1] 1.761944
 
 
 > # summary
@@ -720,20 +756,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef) lower 0.95  upper 0.95      Chisq            p method
-(Intercept)                         0.3713021 0.6422611 -0.8954532  1.64149239  0.3311489 5.649834e-01      2
-inform_plan                         0.4397655 0.1077960  0.2316395  0.65816985 17.7454776 2.525171e-05      2
-age26-35                           -0.6430287 0.3806076 -1.4043987  0.09951231  2.8752201 8.995268e-02      2
-age36-45                           -1.2849531 0.3748474 -2.0393696 -0.55899017 12.2711678 4.600103e-04      2
-age46-55                           -0.9628382 0.3794895 -1.7236824 -0.22454428  6.5694080 1.037465e-02      2
-age55+                             -1.1061018 0.4438515 -1.9940617 -0.24001710  6.2870218 1.216253e-02      2
-sexMale                             0.1233521 0.2448828 -0.3607954  0.60554096  0.2510409 6.163431e-01      2
-educSecondary                      -0.5347208 0.4098073 -1.3492622  0.27255259  1.6894588 1.936723e-01      2
-educHigher                          0.5562595 0.4465978 -0.3232926  1.44270233  1.5391463 2.147449e-01      2
-vuln                               -0.2922499 0.1134447 -0.5186104 -0.07061291  6.7028528 9.625878e-03      2
-occupFisherman/farmer/trader        0.9068917 0.3335528  0.2584815  1.57555886  7.5713782 5.930242e-03      2
-occupPrivately/government employed  0.9139838 0.3305806  0.2694737  1.57439356  7.7665331 5.322310e-03      2
-occupOthers                         1.1948673 0.4542275  0.3143567  2.11461100  7.1292820 7.583509e-03      2
+                                         coef  se(coef) lower 0.95  upper 0.95      Chisq            p
+(Intercept)                         0.3713021 0.6422611 -0.8954532  1.64149239  0.3311489 5.649834e-01
+inform_plan                         0.4397655 0.1077960  0.2316395  0.65816985 17.7454776 2.525171e-05
+age26-35                           -0.6430287 0.3806076 -1.4043987  0.09951231  2.8752201 8.995268e-02
+age36-45                           -1.2849531 0.3748474 -2.0393696 -0.55899017 12.2711678 4.600103e-04
+age46-55                           -0.9628382 0.3794895 -1.7236824 -0.22454428  6.5694080 1.037465e-02
+age55+                             -1.1061018 0.4438515 -1.9940617 -0.24001710  6.2870218 1.216253e-02
+sexMale                             0.1233521 0.2448828 -0.3607954  0.60554096  0.2510409 6.163431e-01
+educSecondary                      -0.5347208 0.4098073 -1.3492622  0.27255259  1.6894588 1.936723e-01
+educHigher                          0.5562595 0.4465978 -0.3232926  1.44270233  1.5391463 2.147449e-01
+vuln                               -0.2922499 0.1134447 -0.5186104 -0.07061291  6.7028528 9.625878e-03
+occupFisherman/farmer/trader        0.9068917 0.3335528  0.2584815  1.57555886  7.5713782 5.930242e-03
+occupPrivately/government employed  0.9139838 0.3305806  0.2694737  1.57439356  7.7665331 5.322310e-03
+occupOthers                         1.1948673 0.4542275  0.3143567  2.11461100  7.1292820 7.583509e-03
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -760,20 +810,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95   upper 0.95      Chisq            p method
-(Intercept)                        -2.19389855 0.7445102 -3.72404469 -0.756472312  9.1680331 2.462791e-03      2
-inform_plan                         0.43178335 0.1083352  0.21806589  0.647303506 15.4955553 8.269948e-05      2
-age26-35                           -0.80646466 0.4093025 -1.63004938 -0.005715283  3.8967537 4.837951e-02      2
-age36-45                           -0.98208428 0.4055509 -1.79896265 -0.188232563  5.8902412 1.522501e-02      2
-age46-55                           -1.01628445 0.4228740 -1.87091596 -0.189866348  5.8276888 1.577584e-02      2
-age55+                             -0.57477162 0.4891385 -1.56807546  0.381215938  1.3754713 2.408741e-01      2
-sexMale                             0.05894243 0.2777396 -0.49400291  0.611503971  0.0439251 8.339930e-01      2
-educSecondary                      -0.29240114 0.4905762 -1.24416917  0.724859406  0.3377266 5.611444e-01      2
-educHigher                          0.61483966 0.5088973 -0.36887093  1.667449041  1.4755844 2.244667e-01      2
-vuln                                0.17123904 0.1287493 -0.08160396  0.431577472  1.7508529 1.857695e-01      2
-occupFisherman/farmer/trader        0.37909950 0.3960694 -0.40282311  1.179371768  0.8993579 3.429539e-01      2
-occupPrivately/government employed  0.28063124 0.3792327 -0.46448873  1.046225008  0.5398107 4.625112e-01      2
-occupOthers                         0.87097048 0.4798181 -0.08592865  1.824313676  3.1905459 7.406527e-02      2
+                                          coef  se(coef)  lower 0.95   upper 0.95      Chisq            p
+(Intercept)                        -2.19389855 0.7445102 -3.72404469 -0.756472312  9.1680331 2.462791e-03
+inform_plan                         0.43178335 0.1083352  0.21806589  0.647303506 15.4955553 8.269948e-05
+age26-35                           -0.80646466 0.4093025 -1.63004938 -0.005715283  3.8967537 4.837951e-02
+age36-45                           -0.98208428 0.4055509 -1.79896265 -0.188232563  5.8902412 1.522501e-02
+age46-55                           -1.01628445 0.4228740 -1.87091596 -0.189866348  5.8276888 1.577584e-02
+age55+                             -0.57477162 0.4891385 -1.56807546  0.381215938  1.3754713 2.408741e-01
+sexMale                             0.05894243 0.2777396 -0.49400291  0.611503971  0.0439251 8.339930e-01
+educSecondary                      -0.29240114 0.4905762 -1.24416917  0.724859406  0.3377266 5.611444e-01
+educHigher                          0.61483966 0.5088973 -0.36887093  1.667449041  1.4755844 2.244667e-01
+vuln                                0.17123904 0.1287493 -0.08160396  0.431577472  1.7508529 1.857695e-01
+occupFisherman/farmer/trader        0.37909950 0.3960694 -0.40282311  1.179371768  0.8993579 3.429539e-01
+occupPrivately/government employed  0.28063124 0.3792327 -0.46448873  1.046225008  0.5398107 4.625112e-01
+occupOthers                         0.87097048 0.4798181 -0.08592865  1.824313676  3.1905459 7.406527e-02
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -800,20 +864,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p method
-(Intercept)                        -1.79088068 0.7923638 -3.4333745 -0.25546974  5.26821237 2.171830e-02      2
-inform_plan                         0.60755729 0.1174045  0.3774336  0.84506495 26.94906468 2.088882e-07      2
-age26-35                           -0.91024583 0.4235692 -1.7674703 -0.08256485  4.65376232 3.098556e-02      2
-age36-45                           -1.77614386 0.4657219 -2.7399755 -0.87674309 15.55634528 8.008242e-05      2
-age46-55                           -1.41126451 0.4599820 -2.3551887 -0.51764796  9.75858143 1.784876e-03      2
-age55+                             -1.13574461 0.5408020 -2.2520561 -0.08226507  4.47864897 3.432084e-02      2
-sexMale                             0.22241220 0.3019521 -0.3799665  0.82902812  0.52458808 4.688911e-01      2
-educSecondary                      -0.62907745 0.5516063 -1.7092360  0.52721411  1.19106253 2.751153e-01      2
-educHigher                          0.64545957 0.5574514 -0.4350476  1.81613375  1.34290091 2.465230e-01      2
-vuln                               -0.02811113 0.1364672 -0.2998487  0.24645728  0.04092062 8.396912e-01      2
-occupFisherman/farmer/trader        0.38725311 0.4524725 -0.5142668  1.30906537  0.70748671 4.002794e-01      2
-occupPrivately/government employed  0.35307911 0.4131084 -0.4592494  1.19535220  0.71727317 3.970398e-01      2
-occupOthers                         1.37337820 0.5041104  0.3781013  2.39171086  7.29570421 6.911967e-03      2
+                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p
+(Intercept)                        -1.79088068 0.7923638 -3.4333745 -0.25546974  5.26821237 2.171830e-02
+inform_plan                         0.60755729 0.1174045  0.3774336  0.84506495 26.94906468 2.088882e-07
+age26-35                           -0.91024583 0.4235692 -1.7674703 -0.08256485  4.65376232 3.098556e-02
+age36-45                           -1.77614386 0.4657219 -2.7399755 -0.87674309 15.55634528 8.008242e-05
+age46-55                           -1.41126451 0.4599820 -2.3551887 -0.51764796  9.75858143 1.784876e-03
+age55+                             -1.13574461 0.5408020 -2.2520561 -0.08226507  4.47864897 3.432084e-02
+sexMale                             0.22241220 0.3019521 -0.3799665  0.82902812  0.52458808 4.688911e-01
+educSecondary                      -0.62907745 0.5516063 -1.7092360  0.52721411  1.19106253 2.751153e-01
+educHigher                          0.64545957 0.5574514 -0.4350476  1.81613375  1.34290091 2.465230e-01
+vuln                               -0.02811113 0.1364672 -0.2998487  0.24645728  0.04092062 8.396912e-01
+occupFisherman/farmer/trader        0.38725311 0.4524725 -0.5142668  1.30906537  0.70748671 4.002794e-01
+occupPrivately/government employed  0.35307911 0.4131084 -0.4592494  1.19535220  0.71727317 3.970398e-01
+occupOthers                         1.37337820 0.5041104  0.3781013  2.39171086  7.29570421 6.911967e-03
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -840,20 +918,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p method
-(Intercept)                        -2.00410344 1.0589938 -4.3259737  0.09477170 3.4929845803 0.061629381      2
-inform_plan                         0.47525682 0.1543125  0.1537414  0.79699079 8.2182962483 0.004147012      2
-age26-35                           -0.84707214 0.6387300 -2.2315904  0.43150858 1.6775160475 0.195254839      2
-age36-45                           -0.77959238 0.5999350 -2.0570100  0.43705170 1.5823688591 0.208419808      2
-age46-55                           -0.28952430 0.5758079 -1.4849385  0.89488600 0.2336323795 0.628843457      2
-age55+                             -0.42443871 0.7443651 -2.0742358  1.06268540 0.3005848537 0.583516002      2
-sexMale                            -0.77606750 0.4149084 -1.6694960  0.07063063 3.2216174420 0.072671790      2
-educSecondary                       0.04132740 0.7486771 -1.3985119  1.81322202 0.0027313519 0.958319663      2
-educHigher                         -0.01473428 0.8143926 -1.6300456  1.85926630 0.0002901613 0.986409395      2
-vuln                               -0.43106877 0.1797327 -0.8144014 -0.06189839 5.2409457002 0.022061278      2
-occupFisherman/farmer/trader        0.59431184 0.6359040 -0.7035376  2.00338107 0.7946835196 0.372687679      2
-occupPrivately/government employed  0.89806816 0.5908318 -0.2691342  2.21583691 2.2410072405 0.134393411      2
-occupOthers                         1.27219294 0.6893129 -0.1473015  2.74016518 3.1008926927 0.078249375      2
+                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p
+(Intercept)                        -2.00410344 1.0589938 -4.3259737  0.09477170 3.4929845803 0.061629381
+inform_plan                         0.47525682 0.1543125  0.1537414  0.79699079 8.2182962483 0.004147012
+age26-35                           -0.84707214 0.6387300 -2.2315904  0.43150858 1.6775160475 0.195254839
+age36-45                           -0.77959238 0.5999350 -2.0570100  0.43705170 1.5823688591 0.208419808
+age46-55                           -0.28952430 0.5758079 -1.4849385  0.89488600 0.2336323795 0.628843457
+age55+                             -0.42443871 0.7443651 -2.0742358  1.06268540 0.3005848537 0.583516002
+sexMale                            -0.77606750 0.4149084 -1.6694960  0.07063063 3.2216174420 0.072671790
+educSecondary                       0.04132740 0.7486771 -1.3985119  1.81322202 0.0027313519 0.958319663
+educHigher                         -0.01473428 0.8143926 -1.6300456  1.85926630 0.0002901613 0.986409395
+vuln                               -0.43106877 0.1797327 -0.8144014 -0.06189839 5.2409457002 0.022061278
+occupFisherman/farmer/trader        0.59431184 0.6359040 -0.7035376  2.00338107 0.7946835196 0.372687679
+occupPrivately/government employed  0.89806816 0.5908318 -0.2691342  2.21583691 2.2410072405 0.134393411
+occupOthers                         1.27219294 0.6893129 -0.1473015  2.74016518 3.1008926927 0.078249375
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -880,20 +972,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef   se(coef)  lower 0.95  upper 0.95     Chisq           p method
-(Intercept)                         0.4510703 0.67229650 -0.87227489  1.77969772 0.4472246 0.503655895      2
-inform_penal                        0.1442510 0.08347383 -0.01968372  0.30913252 2.9745971 0.084581187      2
-age26-35                           -0.5805638 0.37569874 -1.33152429  0.15223431 2.4040406 0.121022301      2
-age36-45                           -1.1155346 0.36787341 -1.85482858 -0.40260524 9.5308722 0.002020441      2
-age46-55                           -0.8444185 0.37192231 -1.58830279 -0.12020626 5.2358931 0.022125446      2
-age55+                             -0.9608144 0.43370539 -1.82641528 -0.11453151 4.9583359 0.025965183      2
-sexMale                             0.1473792 0.24126807 -0.32867596  0.62239979 0.3700180 0.542994455      2
-educSecondary                      -0.3885299 0.39848360 -1.17787341  0.39668719 0.9453945 0.330894363      2
-educHigher                          0.6740750 0.43697032 -0.18498309  1.54071064 2.3680971 0.123837919      2
-vuln                               -0.2512674 0.11429819 -0.47858036 -0.02786026 4.8644419 0.027415665      2
-occupFisherman/farmer/trader        0.8555510 0.32804879  0.21792306  1.51223433 6.9582174 0.008343512      2
-occupPrivately/government employed  0.9605843 0.32584629  0.32624855  1.61136243 8.8716863 0.002896275      2
-occupOthers                         1.1688548 0.44458137  0.30776758  2.06722827 7.1311574 0.007575581      2
+                                         coef   se(coef)  lower 0.95  upper 0.95     Chisq           p
+(Intercept)                         0.4510703 0.67229650 -0.87227489  1.77969772 0.4472246 0.503655895
+inform_penal                        0.1442510 0.08347383 -0.01968372  0.30913252 2.9745971 0.084581187
+age26-35                           -0.5805638 0.37569874 -1.33152429  0.15223431 2.4040406 0.121022301
+age36-45                           -1.1155346 0.36787341 -1.85482858 -0.40260524 9.5308722 0.002020441
+age46-55                           -0.8444185 0.37192231 -1.58830279 -0.12020626 5.2358931 0.022125446
+age55+                             -0.9608144 0.43370539 -1.82641528 -0.11453151 4.9583359 0.025965183
+sexMale                             0.1473792 0.24126807 -0.32867596  0.62239979 0.3700180 0.542994455
+educSecondary                      -0.3885299 0.39848360 -1.17787341  0.39668719 0.9453945 0.330894363
+educHigher                          0.6740750 0.43697032 -0.18498309  1.54071064 2.3680971 0.123837919
+vuln                               -0.2512674 0.11429819 -0.47858036 -0.02786026 4.8644419 0.027415665
+occupFisherman/farmer/trader        0.8555510 0.32804879  0.21792306  1.51223433 6.9582174 0.008343512
+occupPrivately/government employed  0.9605843 0.32584629  0.32624855  1.61136243 8.8716863 0.002896275
+occupOthers                         1.1688548 0.44458137  0.30776758  2.06722827 7.1311574 0.007575581
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -920,20 +1026,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef   se(coef)  lower 0.95  upper 0.95      Chisq           p method
-(Intercept)                        -2.11343452 0.77704560 -3.69632174 -0.60278849 7.61230876 0.005797121      2
-inform_penal                        0.14550265 0.09437794 -0.04183736  0.33328503 2.32088823 0.127647119      2
-age26-35                           -0.69834176 0.40072094 -1.50223804  0.08663757 3.03823091 0.081324500      2
-age36-45                           -0.79931598 0.39493319 -1.59162734 -0.02461729 4.08994189 0.043139125      2
-age46-55                           -0.87094564 0.41229913 -1.70197059 -0.06379315 4.47629914 0.034368065      2
-age55+                             -0.41359727 0.47442292 -1.37423664  0.51382318 0.75514300 0.384852795      2
-sexMale                             0.08398843 0.27157281 -0.45478165  0.62471715 0.09354306 0.759720308      2
-educSecondary                      -0.14523980 0.48152767 -1.07428866  0.85715373 0.08742383 0.767478136      2
-educHigher                          0.75501407 0.49954049 -0.20578870  1.79144323 2.34660194 0.125556432      2
-vuln                                0.20762140 0.13162025 -0.05057663  0.47389008 2.47405750 0.115738803      2
-occupFisherman/farmer/trader        0.33506621 0.38767606 -0.43064451  1.11670758 0.73328999 0.391818848      2
-occupPrivately/government employed  0.36771792 0.37038554 -0.35831559  1.11567160 0.97744142 0.322831295      2
-occupOthers                         0.89767849 0.46611566 -0.03113283  1.82102189 3.59196441 0.058059574      2
+                                          coef   se(coef)  lower 0.95  upper 0.95      Chisq           p
+(Intercept)                        -2.11343452 0.77704560 -3.69632174 -0.60278849 7.61230876 0.005797121
+inform_penal                        0.14550265 0.09437794 -0.04183736  0.33328503 2.32088823 0.127647119
+age26-35                           -0.69834176 0.40072094 -1.50223804  0.08663757 3.03823091 0.081324500
+age36-45                           -0.79931598 0.39493319 -1.59162734 -0.02461729 4.08994189 0.043139125
+age46-55                           -0.87094564 0.41229913 -1.70197059 -0.06379315 4.47629914 0.034368065
+age55+                             -0.41359727 0.47442292 -1.37423664  0.51382318 0.75514300 0.384852795
+sexMale                             0.08398843 0.27157281 -0.45478165  0.62471715 0.09354306 0.759720308
+educSecondary                      -0.14523980 0.48152767 -1.07428866  0.85715373 0.08742383 0.767478136
+educHigher                          0.75501407 0.49954049 -0.20578870  1.79144323 2.34660194 0.125556432
+vuln                                0.20762140 0.13162025 -0.05057663  0.47389008 2.47405750 0.115738803
+occupFisherman/farmer/trader        0.33506621 0.38767606 -0.43064451  1.11670758 0.73328999 0.391818848
+occupPrivately/government employed  0.36771792 0.37038554 -0.35831559  1.11567160 0.97744142 0.322831295
+occupOthers                         0.89767849 0.46611566 -0.03113283  1.82102189 3.59196441 0.058059574
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -960,20 +1080,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef) lower 0.95  upper 0.95      Chisq            p method
-(Intercept)                        -2.6425476 0.8438451 -4.3810897 -1.00349366 10.2284547 1.382905e-03      2
-inform_penal                        0.4856909 0.1064968  0.2774752  0.70387542 21.6167746 3.329273e-06      2
-age26-35                           -0.7396832 0.4175645 -1.5798381  0.07978268  3.1272463 7.699369e-02      2
-age36-45                           -1.5455146 0.4559590 -2.4833945 -0.66195042 12.0321782 5.228993e-04      2
-age46-55                           -1.3532141 0.4584334 -2.2936346 -0.46150440  8.9879614 2.717640e-03      2
-age55+                             -0.8931875 0.5261618 -1.9758079  0.13209430  2.9022610 8.845540e-02      2
-sexMale                             0.1638161 0.2968402 -0.4265032  0.75949626  0.2956797 5.866036e-01      2
-educSecondary                      -0.4611077 0.5428903 -1.5198442  0.67809243  0.6703942 4.129142e-01      2
-educHigher                          0.8284376 0.5492105 -0.2305409  1.98340694  2.3238181 1.274070e-01      2
-vuln                                0.1231770 0.1396848 -0.1526166  0.40580072  0.7602327 3.832557e-01      2
-occupFisherman/farmer/trader        0.3471766 0.4535422 -0.5558539  1.26998031  0.5666307 4.516009e-01      2
-occupPrivately/government employed  0.6250329 0.4066287 -0.1699129  1.45644319  2.3616011 1.243545e-01      2
-occupOthers                         1.3906214 0.4964639  0.4121676  2.39144370  7.7387601 5.404790e-03      2
+                                         coef  se(coef) lower 0.95  upper 0.95      Chisq            p
+(Intercept)                        -2.6425476 0.8438451 -4.3810897 -1.00349366 10.2284547 1.382905e-03
+inform_penal                        0.4856909 0.1064968  0.2774752  0.70387542 21.6167746 3.329273e-06
+age26-35                           -0.7396832 0.4175645 -1.5798381  0.07978268  3.1272463 7.699369e-02
+age36-45                           -1.5455146 0.4559590 -2.4833945 -0.66195042 12.0321782 5.228993e-04
+age46-55                           -1.3532141 0.4584334 -2.2936346 -0.46150440  8.9879614 2.717640e-03
+age55+                             -0.8931875 0.5261618 -1.9758079  0.13209430  2.9022610 8.845540e-02
+sexMale                             0.1638161 0.2968402 -0.4265032  0.75949626  0.2956797 5.866036e-01
+educSecondary                      -0.4611077 0.5428903 -1.5198442  0.67809243  0.6703942 4.129142e-01
+educHigher                          0.8284376 0.5492105 -0.2305409  1.98340694  2.3238181 1.274070e-01
+vuln                                0.1231770 0.1396848 -0.1526166  0.40580072  0.7602327 3.832557e-01
+occupFisherman/farmer/trader        0.3471766 0.4535422 -0.5558539  1.26998031  0.5666307 4.516009e-01
+occupPrivately/government employed  0.6250329 0.4066287 -0.1699129  1.45644319  2.3616011 1.243545e-01
+occupOthers                         1.3906214 0.4964639  0.4121676  2.39144370  7.7387601 5.404790e-03
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1080,20 +1214,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef)  lower 0.95   upper 0.95      Chisq          p method
-(Intercept)                        -1.3442475 0.7981504 -2.97495637  0.209761953 2.86069390 0.09076834      2
-cst_zn                             -0.1206096 0.1307434 -0.38844001  0.134928264 0.83947821 0.35954604      2
-age26-35                           -0.7093464 0.4009059 -1.51419721  0.075718005 3.13404562 0.07667325      2
-age36-45                           -0.7811402 0.3941863 -1.57206251 -0.007710303 3.91857341 0.04775539      2
-age46-55                           -0.8113213 0.4075854 -1.63181947 -0.012533184 3.96346213 0.04649798      2
-age55+                             -0.3777835 0.4727993 -1.33487284  0.547139215 0.63325383 0.42616429      2
-sexMale                             0.1181805 0.2703226 -0.41828716  0.656971237 0.18672599 0.66565564      2
-educSecondary                      -0.1407714 0.4812056 -1.06925291  0.862066994 0.08213564 0.77442385      2
-educHigher                          0.7173805 0.5042014 -0.25382853  1.763233754 2.06884527 0.15033531      2
-vuln                                0.1436985 0.1281468 -0.10792185  0.403220109 1.24128887 0.26522280      2
-occupFisherman/farmer/trader        0.3011257 0.3855617 -0.46147577  1.077979804 0.59750588 0.43953123      2
-occupPrivately/government employed  0.3165972 0.3700389 -0.40962874  1.063965980 0.72353993 0.39498520      2
-occupOthers                         0.9030493 0.4654477 -0.02496209  1.824870397 3.64065958 0.05638459      2
+                                         coef  se(coef)  lower 0.95   upper 0.95      Chisq          p
+(Intercept)                        -1.3442475 0.7981504 -2.97495637  0.209761953 2.86069390 0.09076834
+cst_zn                             -0.1206096 0.1307434 -0.38844001  0.134928264 0.83947821 0.35954604
+age26-35                           -0.7093464 0.4009059 -1.51419721  0.075718005 3.13404562 0.07667325
+age36-45                           -0.7811402 0.3941863 -1.57206251 -0.007710303 3.91857341 0.04775539
+age46-55                           -0.8113213 0.4075854 -1.63181947 -0.012533184 3.96346213 0.04649798
+age55+                             -0.3777835 0.4727993 -1.33487284  0.547139215 0.63325383 0.42616429
+sexMale                             0.1181805 0.2703226 -0.41828716  0.656971237 0.18672599 0.66565564
+educSecondary                      -0.1407714 0.4812056 -1.06925291  0.862066994 0.08213564 0.77442385
+educHigher                          0.7173805 0.5042014 -0.25382853  1.763233754 2.06884527 0.15033531
+vuln                                0.1436985 0.1281468 -0.10792185  0.403220109 1.24128887 0.26522280
+occupFisherman/farmer/trader        0.3011257 0.3855617 -0.46147577  1.077979804 0.59750588 0.43953123
+occupPrivately/government employed  0.3165972 0.3700389 -0.40962874  1.063965980 0.72353993 0.39498520
+occupOthers                         0.9030493 0.4654477 -0.02496209  1.824870397 3.64065958 0.05638459
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1120,20 +1268,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95 upper 0.95       Chisq           p method
-(Intercept)                        -0.72176347 0.8411385 -2.4490244  0.9255454  0.72331698 0.395058030      2
-cst_zn                             -0.14114653 0.1414823 -0.4342062  0.1358600  0.97632139 0.323108686      2
-age26-35                           -0.75038395 0.4071787 -1.5703066  0.0464247  3.40458868 0.065015321      2
-age36-45                           -1.39812379 0.4387357 -2.2995313 -0.5479200 10.58710248 0.001138793      2
-age46-55                           -1.04468277 0.4284015 -1.9162316 -0.2085823  6.02721475 0.014086944      2
-age55+                             -0.74919516 0.5044862 -1.7864937  0.2329882  2.21622523 0.136566603      2
-sexMale                             0.26462157 0.2873167 -0.3060295  0.8422142  0.82460878 0.363836104      2
-educSecondary                      -0.35907246 0.5274306 -1.3784526  0.7584615  0.43020914 0.511886342      2
-educHigher                          0.77216471 0.5408082 -0.2675282  1.9143501  2.08606374 0.148648644      2
-vuln                               -0.04313755 0.1340057 -0.3095411  0.2271132  0.09972239 0.752163026      2
-occupFisherman/farmer/trader        0.24274890 0.4299316 -0.6162220  1.1142057  0.30753285 0.579198085      2
-occupPrivately/government employed  0.41592786 0.3942306 -0.3578327  1.2193441  1.09948361 0.294379458      2
-occupOthers                         1.34582759 0.4771372  0.4046749  2.3036850  7.81864854 0.005170985      2
+                                          coef  se(coef) lower 0.95 upper 0.95       Chisq           p
+(Intercept)                        -0.72176347 0.8411385 -2.4490244  0.9255454  0.72331698 0.395058030
+cst_zn                             -0.14114653 0.1414823 -0.4342062  0.1358600  0.97632139 0.323108686
+age26-35                           -0.75038395 0.4071787 -1.5703066  0.0464247  3.40458868 0.065015321
+age36-45                           -1.39812379 0.4387357 -2.2995313 -0.5479200 10.58710248 0.001138793
+age46-55                           -1.04468277 0.4284015 -1.9162316 -0.2085823  6.02721475 0.014086944
+age55+                             -0.74919516 0.5044862 -1.7864937  0.2329882  2.21622523 0.136566603
+sexMale                             0.26462157 0.2873167 -0.3060295  0.8422142  0.82460878 0.363836104
+educSecondary                      -0.35907246 0.5274306 -1.3784526  0.7584615  0.43020914 0.511886342
+educHigher                          0.77216471 0.5408082 -0.2675282  1.9143501  2.08606374 0.148648644
+vuln                               -0.04313755 0.1340057 -0.3095411  0.2271132  0.09972239 0.752163026
+occupFisherman/farmer/trader        0.24274890 0.4299316 -0.6162220  1.1142057  0.30753285 0.579198085
+occupPrivately/government employed  0.41592786 0.3942306 -0.3578327  1.2193441  1.09948361 0.294379458
+occupOthers                         1.34582759 0.4771372  0.4046749  2.3036850  7.81864854 0.005170985
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1200,20 +1362,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef)  lower 0.95  upper 0.95      Chisq            p method
-(Intercept)                         0.4845455 0.6575358 -0.81423360  1.78959717  0.5359423 4.641193e-01      2
-exp_socYes                          2.1338289 0.3312556  1.50679670  2.83141780 52.2658814 4.847234e-13      2
-age26-35                           -0.3471977 0.4077658 -1.16082513  0.45535843  0.7171543 3.970789e-01      2
-age36-45                           -0.7299636 0.3985312 -1.52907619  0.05063882  3.3568307 6.692676e-02      2
-age46-55                           -0.4550441 0.3990955 -1.25109923  0.33012222  1.2881981 2.563803e-01      2
-age55+                             -0.7320643 0.4667338 -1.66795607  0.18270627  2.4544610 1.171914e-01      2
-sexMale                             0.1016849 0.2581104 -0.40993527  0.61166040  0.1527837 6.958892e-01      2
-educSecondary                      -0.5308343 0.4166672 -1.35657180  0.29494797  1.5978889 2.062026e-01      2
-educHigher                          0.2048301 0.4640812 -0.71179388  1.12630991  0.1926160 6.607482e-01      2
-vuln                               -0.2686864 0.1182461 -0.50467406 -0.03654248  5.1510454 2.323238e-02      2
-occupFisherman/farmer/trader        0.7033873 0.3459089  0.02661857  1.39650516  4.1516578 4.159378e-02      2
-occupPrivately/government employed  0.7557091 0.3472763  0.07540003  1.45058653  4.7452765 2.937883e-02      2
-occupOthers                         0.8697342 0.4812674 -0.07877798  1.83543545  3.2299595 7.230248e-02      2
+                                         coef  se(coef)  lower 0.95  upper 0.95      Chisq            p
+(Intercept)                         0.4845455 0.6575358 -0.81423360  1.78959717  0.5359423 4.641193e-01
+exp_socYes                          2.1338289 0.3312556  1.50679670  2.83141780 52.2658814 4.847234e-13
+age26-35                           -0.3471977 0.4077658 -1.16082513  0.45535843  0.7171543 3.970789e-01
+age36-45                           -0.7299636 0.3985312 -1.52907619  0.05063882  3.3568307 6.692676e-02
+age46-55                           -0.4550441 0.3990955 -1.25109923  0.33012222  1.2881981 2.563803e-01
+age55+                             -0.7320643 0.4667338 -1.66795607  0.18270627  2.4544610 1.171914e-01
+sexMale                             0.1016849 0.2581104 -0.40993527  0.61166040  0.1527837 6.958892e-01
+educSecondary                      -0.5308343 0.4166672 -1.35657180  0.29494797  1.5978889 2.062026e-01
+educHigher                          0.2048301 0.4640812 -0.71179388  1.12630991  0.1926160 6.607482e-01
+vuln                               -0.2686864 0.1182461 -0.50467406 -0.03654248  5.1510454 2.323238e-02
+occupFisherman/farmer/trader        0.7033873 0.3459089  0.02661857  1.39650516  4.1516578 4.159378e-02
+occupPrivately/government employed  0.7557091 0.3472763  0.07540003  1.45058653  4.7452765 2.937883e-02
+occupOthers                         0.8697342 0.4812674 -0.07877798  1.83543545  3.2299595 7.230248e-02
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1240,20 +1416,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95 upper 0.95        Chisq            p method
-(Intercept)                        -2.29404074 0.7723866 -3.88829860 -0.7992724  9.282897573 2.313032e-03      2
-exp_socYes                          1.74056272 0.2911717  1.17263892  2.3262652 36.669753448 1.399338e-09      2
-age26-35                           -0.53120142 0.4309811 -1.39855557  0.3172608  1.501834494 2.203893e-01      2
-age36-45                           -0.32676102 0.4242914 -1.17376632  0.5154192  0.580635775 4.460632e-01      2
-age46-55                           -0.43893732 0.4387230 -1.31911502  0.4295834  0.981441165 3.218433e-01      2
-age55+                             -0.08028583 0.5080620 -1.10933812  0.9209631  0.024317810 8.760790e-01      2
-sexMale                             0.03028556 0.2894239 -0.54783107  0.6072686  0.010626011 9.178975e-01      2
-educSecondary                      -0.26696164 0.5027410 -1.24273667  0.7786741  0.267043539 6.053219e-01      2
-educHigher                          0.24531344 0.5351619 -0.79729310  1.3495749  0.205922984 6.499819e-01      2
-vuln                                0.24429947 0.1370549 -0.02400452  0.5245976  3.176055501 7.472492e-02      2
-occupFisherman/farmer/trader        0.06198347 0.4062073 -0.74750289  0.8780417  0.022597479 8.805085e-01      2
-occupPrivately/government employed  0.03379029 0.3978504 -0.75555124  0.8338387  0.007015062 9.332505e-01      2
-occupOthers                         0.47772771 0.5059970 -0.54307379  1.4786228  0.856831690 3.546268e-01      2
+                                          coef  se(coef)  lower 0.95 upper 0.95        Chisq            p
+(Intercept)                        -2.29404074 0.7723866 -3.88829860 -0.7992724  9.282897573 2.313032e-03
+exp_socYes                          1.74056272 0.2911717  1.17263892  2.3262652 36.669753448 1.399338e-09
+age26-35                           -0.53120142 0.4309811 -1.39855557  0.3172608  1.501834494 2.203893e-01
+age36-45                           -0.32676102 0.4242914 -1.17376632  0.5154192  0.580635775 4.460632e-01
+age46-55                           -0.43893732 0.4387230 -1.31911502  0.4295834  0.981441165 3.218433e-01
+age55+                             -0.08028583 0.5080620 -1.10933812  0.9209631  0.024317810 8.760790e-01
+sexMale                             0.03028556 0.2894239 -0.54783107  0.6072686  0.010626011 9.178975e-01
+educSecondary                      -0.26696164 0.5027410 -1.24273667  0.7786741  0.267043539 6.053219e-01
+educHigher                          0.24531344 0.5351619 -0.79729310  1.3495749  0.205922984 6.499819e-01
+vuln                                0.24429947 0.1370549 -0.02400452  0.5245976  3.176055501 7.472492e-02
+occupFisherman/farmer/trader        0.06198347 0.4062073 -0.74750289  0.8780417  0.022597479 8.805085e-01
+occupPrivately/government employed  0.03379029 0.3978504 -0.75555124  0.8338387  0.007015062 9.332505e-01
+occupOthers                         0.47772771 0.5059970 -0.54307379  1.4786228  0.856831690 3.546268e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1320,20 +1510,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95        Chisq            p method
-(Intercept)                        -2.23100161 1.1273280 -4.7191172  0.01484004  3.789147484 5.158592e-02      2
-exp_socYes                          2.15788307 0.4469816  1.2607099  3.13872957 23.257306975 1.417110e-06      2
-age26-35                           -0.44039403 0.6577757 -1.8482528  0.89022729  0.419648719 5.171124e-01      2
-age36-45                            0.05712459 0.6329444 -1.2709193  1.36442092  0.007462719 9.311588e-01      2
-age46-55                            0.56993869 0.5994646 -0.6463891  1.83041207  0.843410620 3.584232e-01      2
-age55+                              0.24323526 0.8061140 -1.5225271  1.89838109  0.079737420 7.776536e-01      2
-sexMale                            -0.99083420 0.4434808 -1.9545464 -0.09170255  4.682365170 3.047376e-02      2
-educSecondary                       0.13738138 0.8026033 -1.4312956  2.02973909  0.025903298 8.721367e-01      2
-educHigher                         -0.58324514 0.8947782 -2.4011547  1.44211651  0.358641353 5.492618e-01      2
-vuln                               -0.44752756 0.1909552 -0.8568097 -0.05628636  5.034081403 2.485326e-02      2
-occupFisherman/farmer/trader        0.26793540 0.6580744 -1.0876165  1.71344409  0.147794380 7.006521e-01      2
-occupPrivately/government employed  0.83980986 0.6181516 -0.3878748  2.20825600  1.765523719 1.839370e-01      2
-occupOthers                         1.04510429 0.7191042 -0.4385330  2.57088289  1.925953217 1.652019e-01      2
+                                          coef  se(coef) lower 0.95  upper 0.95        Chisq            p
+(Intercept)                        -2.23100161 1.1273280 -4.7191172  0.01484004  3.789147484 5.158592e-02
+exp_socYes                          2.15788307 0.4469816  1.2607099  3.13872957 23.257306975 1.417110e-06
+age26-35                           -0.44039403 0.6577757 -1.8482528  0.89022729  0.419648719 5.171124e-01
+age36-45                            0.05712459 0.6329444 -1.2709193  1.36442092  0.007462719 9.311588e-01
+age46-55                            0.56993869 0.5994646 -0.6463891  1.83041207  0.843410620 3.584232e-01
+age55+                              0.24323526 0.8061140 -1.5225271  1.89838109  0.079737420 7.776536e-01
+sexMale                            -0.99083420 0.4434808 -1.9545464 -0.09170255  4.682365170 3.047376e-02
+educSecondary                       0.13738138 0.8026033 -1.4312956  2.02973909  0.025903298 8.721367e-01
+educHigher                         -0.58324514 0.8947782 -2.4011547  1.44211651  0.358641353 5.492618e-01
+vuln                               -0.44752756 0.1909552 -0.8568097 -0.05628636  5.034081403 2.485326e-02
+occupFisherman/farmer/trader        0.26793540 0.6580744 -1.0876165  1.71344409  0.147794380 7.006521e-01
+occupPrivately/government employed  0.83980986 0.6181516 -0.3878748  2.20825600  1.765523719 1.839370e-01
+occupOthers                         1.04510429 0.7191042 -0.4385330  2.57088289  1.925953217 1.652019e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1426,20 +1630,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)   lower 0.95 upper 0.95        Chisq           p method
-(Intercept)                        -1.19590633 1.2279247 -3.770450746  1.2327582  0.925281014 0.336092160      2
-inform_plan                         0.36311614 0.1821060  0.003146733  0.7456715  3.909906495 0.048002268      2
-age26-35                            0.04058059 0.6997575 -1.396147655  1.4442850  0.003199737 0.954890749      2
-age36-45                           -0.13892605 0.6542507 -1.472143309  1.1765310  0.043140795 0.835460389      2
-age46-55                           -0.86457875 0.6659245 -2.241560266  0.4626388  1.628344590 0.201932168      2
-age55+                             -0.65099804 0.8156818 -2.355830469  0.9739853  0.612254963 0.433940038      2
-sexMale                             0.03793235 0.4757150 -0.931755928  0.9959376  0.006057993 0.937960807      2
-educSecondary                       0.84899773 0.7606595 -0.593858062  2.5912429  1.283618261 0.257227363      2
-educHigher                          2.43504565 0.8739973  0.765897025  4.3729836  8.380865803 0.003791917      2
-vuln                               -0.60684960 0.1899603 -1.008624150 -0.2361360 10.535937687 0.001170755      2
-occupFisherman/farmer/trader        0.89263695 0.7903746 -0.643783368  2.6374983  1.261879274 0.261295669      2
-occupPrivately/government employed  1.61766848 0.7617949  0.157307870  3.3052852  4.749609618 0.029304942      2
-occupOthers                         1.78676515 0.8072273  0.233642959  3.5611469  5.133468688 0.023468781      2
+                                          coef  se(coef)   lower 0.95 upper 0.95        Chisq           p
+(Intercept)                        -1.19590633 1.2279247 -3.770450746  1.2327582  0.925281014 0.336092160
+inform_plan                         0.36311614 0.1821060  0.003146733  0.7456715  3.909906495 0.048002268
+age26-35                            0.04058059 0.6997575 -1.396147655  1.4442850  0.003199737 0.954890749
+age36-45                           -0.13892605 0.6542507 -1.472143309  1.1765310  0.043140795 0.835460389
+age46-55                           -0.86457875 0.6659245 -2.241560266  0.4626388  1.628344590 0.201932168
+age55+                             -0.65099804 0.8156818 -2.355830469  0.9739853  0.612254963 0.433940038
+sexMale                             0.03793235 0.4757150 -0.931755928  0.9959376  0.006057993 0.937960807
+educSecondary                       0.84899773 0.7606595 -0.593858062  2.5912429  1.283618261 0.257227363
+educHigher                          2.43504565 0.8739973  0.765897025  4.3729836  8.380865803 0.003791917
+vuln                               -0.60684960 0.1899603 -1.008624150 -0.2361360 10.535937687 0.001170755
+occupFisherman/farmer/trader        0.89263695 0.7903746 -0.643783368  2.6374983  1.261879274 0.261295669
+occupPrivately/government employed  1.61766848 0.7617949  0.157307870  3.3052852  4.749609618 0.029304942
+occupOthers                         1.78676515 0.8072273  0.233642959  3.5611469  5.133468688 0.023468781
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1466,20 +1684,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95 upper 0.95       Chisq          p method
-(Intercept)                        -3.79611613 1.7199963 -9.02780848 -0.5932912 5.607767308 0.01788103      2
-inform_plan                         0.46695249 0.1907236  0.08069363  0.8840537 5.630255083 0.01765306      2
-age26-35                           -0.87801779 0.7190550 -2.38901681  0.5596272 1.429157804 0.23190193      2
-age36-45                           -0.95102795 0.7305585 -2.53459312  0.5125017 1.610697745 0.20439375      2
-age46-55                           -1.23219540 0.7214376 -2.77571838  0.2150811 2.782713851 0.09528658      2
-age55+                             -0.94429742 0.9768674 -3.37934641  0.9509854 0.893412285 0.34455428      2
-sexMale                            -0.13524963 0.5374405 -1.26237588  0.9879468 0.056787320 0.81164772      2
-educSecondary                       1.13456140 1.3226377 -1.11348572  6.0280737 0.765464132 0.38162393      2
-educHigher                          2.85002738 1.3624350  0.53757620  7.7694452 6.399530466 0.01141505      2
-vuln                                0.01154999 0.2063437 -0.40883638  0.4579100 0.002806112 0.95775362      2
-occupFisherman/farmer/trader        1.03868940 0.9205677 -0.81994297  3.1534583 1.178260454 0.27771042      2
-occupPrivately/government employed  0.64633683 0.8784501 -1.09456194  2.6548380 0.504164693 0.47767589      2
-occupOthers                         1.23093047 0.8674604 -0.47183015  3.2048071 1.976141094 0.15979753      2
+                                          coef  se(coef)  lower 0.95 upper 0.95       Chisq          p
+(Intercept)                        -3.79611613 1.7199963 -9.02780848 -0.5932912 5.607767308 0.01788103
+inform_plan                         0.46695249 0.1907236  0.08069363  0.8840537 5.630255083 0.01765306
+age26-35                           -0.87801779 0.7190550 -2.38901681  0.5596272 1.429157804 0.23190193
+age36-45                           -0.95102795 0.7305585 -2.53459312  0.5125017 1.610697745 0.20439375
+age46-55                           -1.23219540 0.7214376 -2.77571838  0.2150811 2.782713851 0.09528658
+age55+                             -0.94429742 0.9768674 -3.37934641  0.9509854 0.893412285 0.34455428
+sexMale                            -0.13524963 0.5374405 -1.26237588  0.9879468 0.056787320 0.81164772
+educSecondary                       1.13456140 1.3226377 -1.11348572  6.0280737 0.765464132 0.38162393
+educHigher                          2.85002738 1.3624350  0.53757620  7.7694452 6.399530466 0.01141505
+vuln                                0.01154999 0.2063437 -0.40883638  0.4579100 0.002806112 0.95775362
+occupFisherman/farmer/trader        1.03868940 0.9205677 -0.81994297  3.1534583 1.178260454 0.27771042
+occupPrivately/government employed  0.64633683 0.8784501 -1.09456194  2.6548380 0.504164693 0.47767589
+occupOthers                         1.23093047 0.8674604 -0.47183015  3.2048071 1.976141094 0.15979753
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1506,20 +1738,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p method
-(Intercept)                        -3.49650547 1.5346207 -7.1263334 -0.51267051  5.389089843 0.020263037      2
-inform_plan                         0.61605168 0.1928861  0.2315295  1.04722173 10.130452433 0.001458396      2
-age26-35                           -0.32486100 0.7087157 -1.7780680  1.12648943  0.197266968 0.656935974      2
-age36-45                           -0.65944067 0.7190436 -2.1831709  0.80423987  0.783590551 0.376045266      2
-age46-55                           -1.22965547 0.7644873 -2.8974793  0.31219570  2.435771270 0.118595551      2
-age55+                             -2.57466957 1.4650372 -7.5798612 -0.02320687  3.923987239 0.047601854      2
-sexMale                            -0.21079021 0.5467030 -1.3728232  0.93721734  0.131444690 0.716938812      2
-educSecondary                       0.03430557 0.9386291 -1.7889011  2.46324378  0.001136977 0.973101154      2
-educHigher                          0.84297978 0.9863596 -1.0741337  3.31577169  0.692976843 0.405153688      2
-vuln                               -0.05127434 0.2094813 -0.4857155  0.39975152  0.052690747 0.818445620      2
-occupFisherman/farmer/trader        1.48883004 1.1117498 -0.6990708  4.21049715  1.721281567 0.189528163      2
-occupPrivately/government employed  1.70227676 1.0357035 -0.2629312  4.28740950  2.814831903 0.093396680      2
-occupOthers                         2.38948443 1.0410945  0.4250804  4.98947855  5.895143918 0.015182689      2
+                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p
+(Intercept)                        -3.49650547 1.5346207 -7.1263334 -0.51267051  5.389089843 0.020263037
+inform_plan                         0.61605168 0.1928861  0.2315295  1.04722173 10.130452433 0.001458396
+age26-35                           -0.32486100 0.7087157 -1.7780680  1.12648943  0.197266968 0.656935974
+age36-45                           -0.65944067 0.7190436 -2.1831709  0.80423987  0.783590551 0.376045266
+age46-55                           -1.22965547 0.7644873 -2.8974793  0.31219570  2.435771270 0.118595551
+age55+                             -2.57466957 1.4650372 -7.5798612 -0.02320687  3.923987239 0.047601854
+sexMale                            -0.21079021 0.5467030 -1.3728232  0.93721734  0.131444690 0.716938812
+educSecondary                       0.03430557 0.9386291 -1.7889011  2.46324378  0.001136977 0.973101154
+educHigher                          0.84297978 0.9863596 -1.0741337  3.31577169  0.692976843 0.405153688
+vuln                               -0.05127434 0.2094813 -0.4857155  0.39975152  0.052690747 0.818445620
+occupFisherman/farmer/trader        1.48883004 1.1117498 -0.6990708  4.21049715  1.721281567 0.189528163
+occupPrivately/government employed  1.70227676 1.0357035 -0.2629312  4.28740950  2.814831903 0.093396680
+occupOthers                         2.38948443 1.0410945  0.4250804  4.98947855  5.895143918 0.015182689
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1586,20 +1832,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95 upper 0.95      Chisq           p method
-(Intercept)                        -0.60986034 1.3040525 -3.30490369  1.9999113 0.20978050 0.646939498      2
-inform_penal                        0.03608989 0.1541341 -0.27585762  0.3494103 0.05206784 0.819503365      2
-age26-35                            0.11800662 0.6876794 -1.28409429  1.4978359 0.02815914 0.866735225      2
-age36-45                           -0.14665581 0.6502069 -1.46914990  1.1584501 0.04884156 0.825091450      2
-age46-55                           -0.76935590 0.6663780 -2.14009269  0.5612265 1.28536073 0.256904673      2
-age55+                             -0.70112659 0.8042228 -2.38123518  0.8951703 0.73466263 0.391376012      2
-sexMale                             0.12544683 0.4687095 -0.82500161  1.0695724 0.06854622 0.793465360      2
-educSecondary                       0.80544168 0.7732377 -0.66514397  2.5755650 1.10401460 0.293386752      2
-educHigher                          2.26504926 0.8765574  0.59482679  4.2136603 7.23474308 0.007150604      2
-vuln                               -0.55498751 0.1871235 -0.94660691 -0.1889891 8.97572724 0.002735897      2
-occupFisherman/farmer/trader        0.61968130 0.7559668 -0.85564945  2.2669723 0.65724020 0.417535951      2
-occupPrivately/government employed  1.44264499 0.7370707  0.02371747  3.0466945 3.97456963 0.046192256      2
-occupOthers                         1.69291183 0.7815975  0.18645094  3.3842649 4.88414216 0.027104500      2
+                                          coef  se(coef)  lower 0.95 upper 0.95      Chisq           p
+(Intercept)                        -0.60986034 1.3040525 -3.30490369  1.9999113 0.20978050 0.646939498
+inform_penal                        0.03608989 0.1541341 -0.27585762  0.3494103 0.05206784 0.819503365
+age26-35                            0.11800662 0.6876794 -1.28409429  1.4978359 0.02815914 0.866735225
+age36-45                           -0.14665581 0.6502069 -1.46914990  1.1584501 0.04884156 0.825091450
+age46-55                           -0.76935590 0.6663780 -2.14009269  0.5612265 1.28536073 0.256904673
+age55+                             -0.70112659 0.8042228 -2.38123518  0.8951703 0.73466263 0.391376012
+sexMale                             0.12544683 0.4687095 -0.82500161  1.0695724 0.06854622 0.793465360
+educSecondary                       0.80544168 0.7732377 -0.66514397  2.5755650 1.10401460 0.293386752
+educHigher                          2.26504926 0.8765574  0.59482679  4.2136603 7.23474308 0.007150604
+vuln                               -0.55498751 0.1871235 -0.94660691 -0.1889891 8.97572724 0.002735897
+occupFisherman/farmer/trader        0.61968130 0.7559668 -0.85564945  2.2669723 0.65724020 0.417535951
+occupPrivately/government employed  1.44264499 0.7370707  0.02371747  3.0466945 3.97456963 0.046192256
+occupOthers                         1.69291183 0.7815975  0.18645094  3.3842649 4.88414216 0.027104500
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1626,20 +1886,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95 upper 0.95      Chisq           p method
-(Intercept)                        -3.93876036 1.7655653 -9.20031514 -0.6104244 5.54039776 0.018582359      2
-inform_penal                        0.32567930 0.1804459 -0.04159177  0.7237369 3.01209099 0.082645616      2
-age26-35                           -0.79481863 0.7161141 -2.29515186  0.6375260 1.18076332 0.277200653      2
-age36-45                           -0.82712651 0.7087210 -2.33574404  0.5978255 1.29102089 0.255859900      2
-age46-55                           -1.26238773 0.7218195 -2.81149457  0.1859363 2.91722692 0.087638356      2
-age55+                             -0.97913536 0.9694465 -3.39607121  0.8950988 0.98472004 0.321036276      2
-sexMale                            -0.07227700 0.5266304 -1.16773731  1.0339621 0.01693572 0.896457798      2
-educSecondary                       1.26321770 1.3220129 -0.97346870  6.1517175 0.99100785 0.319496172      2
-educHigher                          2.95492780 1.3662010  0.64075829  7.8719730 6.95938026 0.008338091      2
-vuln                                0.08419854 0.2077037 -0.33624422  0.5336571 0.14953545 0.698979697      2
-occupFisherman/farmer/trader        0.74940250 0.8947735 -1.07157362  2.7805903 0.64223509 0.422902594      2
-occupPrivately/government employed  0.66472476 0.8576031 -1.03985185  2.6136778 0.56326304 0.452948494      2
-occupOthers                         1.16261683 0.8408901 -0.48170914  3.0677502 1.88953798 0.169254042      2
+                                          coef  se(coef)  lower 0.95 upper 0.95      Chisq           p
+(Intercept)                        -3.93876036 1.7655653 -9.20031514 -0.6104244 5.54039776 0.018582359
+inform_penal                        0.32567930 0.1804459 -0.04159177  0.7237369 3.01209099 0.082645616
+age26-35                           -0.79481863 0.7161141 -2.29515186  0.6375260 1.18076332 0.277200653
+age36-45                           -0.82712651 0.7087210 -2.33574404  0.5978255 1.29102089 0.255859900
+age46-55                           -1.26238773 0.7218195 -2.81149457  0.1859363 2.91722692 0.087638356
+age55+                             -0.97913536 0.9694465 -3.39607121  0.8950988 0.98472004 0.321036276
+sexMale                            -0.07227700 0.5266304 -1.16773731  1.0339621 0.01693572 0.896457798
+educSecondary                       1.26321770 1.3220129 -0.97346870  6.1517175 0.99100785 0.319496172
+educHigher                          2.95492780 1.3662010  0.64075829  7.8719730 6.95938026 0.008338091
+vuln                                0.08419854 0.2077037 -0.33624422  0.5336571 0.14953545 0.698979697
+occupFisherman/farmer/trader        0.74940250 0.8947735 -1.07157362  2.7805903 0.64223509 0.422902594
+occupPrivately/government employed  0.66472476 0.8576031 -1.03985185  2.6136778 0.56326304 0.452948494
+occupOthers                         1.16261683 0.8408901 -0.48170914  3.0677502 1.88953798 0.169254042
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1666,20 +1940,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95  upper 0.95        Chisq           p method
-(Intercept)                        -4.54744964 1.6824505 -8.53688280 -1.24536766 7.6127198268 0.005795800      2
-inform_penal                        0.62439265 0.2023472  0.22425082  1.09669968 9.8739092459 0.001676389      2
-age26-35                           -0.26921443 0.7107743 -1.73361657  1.18393049 0.1347491979 0.713557850      2
-age36-45                           -0.81775130 0.7452554 -2.43805065  0.69190806 1.1192367392 0.290082863      2
-age46-55                           -1.50643221 0.7945779 -3.25943594  0.09533704 3.3911768292 0.065546151      2
-age55+                             -2.70347571 1.4561489 -7.67524643 -0.17531464 4.4933337874 0.034027259      2
-sexMale                             0.00895621 0.5383086 -1.10472674  1.16473589 0.0002459909 0.987486413      2
-educSecondary                       0.41580066 0.9706803 -1.49055503  2.90045306 0.1618620892 0.687447891      2
-educHigher                          1.31370807 1.0232688 -0.68751995  3.85773853 1.5934619270 0.206832218      2
-vuln                                0.04292807 0.2105976 -0.39009458  0.49840494 0.0370270188 0.847410048      2
-occupFisherman/farmer/trader        1.39056873 1.1276770 -0.84326859  4.11524049 1.4382167668 0.230428124      2
-occupPrivately/government employed  1.98107930 1.0415417  0.01177207  4.55595645 3.8914885704 0.048531391      2
-occupOthers                         2.32176279 1.0410920  0.36459547  4.89013204 5.5774206968 0.018193499      2
+                                          coef  se(coef)  lower 0.95  upper 0.95        Chisq           p
+(Intercept)                        -4.54744964 1.6824505 -8.53688280 -1.24536766 7.6127198268 0.005795800
+inform_penal                        0.62439265 0.2023472  0.22425082  1.09669968 9.8739092459 0.001676389
+age26-35                           -0.26921443 0.7107743 -1.73361657  1.18393049 0.1347491979 0.713557850
+age36-45                           -0.81775130 0.7452554 -2.43805065  0.69190806 1.1192367392 0.290082863
+age46-55                           -1.50643221 0.7945779 -3.25943594  0.09533704 3.3911768292 0.065546151
+age55+                             -2.70347571 1.4561489 -7.67524643 -0.17531464 4.4933337874 0.034027259
+sexMale                             0.00895621 0.5383086 -1.10472674  1.16473589 0.0002459909 0.987486413
+educSecondary                       0.41580066 0.9706803 -1.49055503  2.90045306 0.1618620892 0.687447891
+educHigher                          1.31370807 1.0232688 -0.68751995  3.85773853 1.5934619270 0.206832218
+vuln                                0.04292807 0.2105976 -0.39009458  0.49840494 0.0370270188 0.847410048
+occupFisherman/farmer/trader        1.39056873 1.1276770 -0.84326859  4.11524049 1.4382167668 0.230428124
+occupPrivately/government employed  1.98107930 1.0415417  0.01177207  4.55595645 3.8914885704 0.048531391
+occupOthers                         2.32176279 1.0410920  0.36459547  4.89013204 5.5774206968 0.018193499
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1746,20 +2034,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef) lower 0.95  upper 0.95       Chisq           p method
-(Intercept)                         0.2752563 1.2561503 -2.3235788  2.81429708 0.045784224 0.830568514      2
-cst_zn                             -0.3682316 0.1952423 -0.7780975  0.01845226 3.480798931 0.062084759      2
-age26-35                            0.1077207 0.6915823 -1.3040956  1.49500548 0.023163427 0.879032856      2
-age36-45                           -0.1512251 0.6625851 -1.5042628  1.18058548 0.049781602 0.823443739      2
-age46-55                           -0.9110858 0.6704547 -2.2932360  0.42352717 1.789027926 0.181044645      2
-age55+                             -0.7760592 0.8287742 -2.5224721  0.87823381 0.837724158 0.360048475      2
-sexMale                             0.0390426 0.4831341 -0.9481728  1.01581478 0.006187675 0.937301649      2
-educSecondary                       0.7505069 0.7738955 -0.7384915  2.52434335 0.939714772 0.332351206      2
-educHigher                          2.0439701 0.8661217  0.3749680  3.96826633 5.812839318 0.015909587      2
-vuln                               -0.5706524 0.1878281 -0.9654755 -0.20344969 9.444056425 0.002118345      2
-occupFisherman/farmer/trader        0.8104557 0.7711061 -0.6964018  2.49028453 1.085176559 0.297542404      2
-occupPrivately/government employed  1.6821922 0.7667477  0.2035935  3.35837119 5.015392446 0.025122934      2
-occupOthers                         1.7785868 0.7973342  0.2435953  3.51283604 5.206822952 0.022498411      2
+                                         coef  se(coef) lower 0.95  upper 0.95       Chisq           p
+(Intercept)                         0.2752563 1.2561503 -2.3235788  2.81429708 0.045784224 0.830568514
+cst_zn                             -0.3682316 0.1952423 -0.7780975  0.01845226 3.480798931 0.062084759
+age26-35                            0.1077207 0.6915823 -1.3040956  1.49500548 0.023163427 0.879032856
+age36-45                           -0.1512251 0.6625851 -1.5042628  1.18058548 0.049781602 0.823443739
+age46-55                           -0.9110858 0.6704547 -2.2932360  0.42352717 1.789027926 0.181044645
+age55+                             -0.7760592 0.8287742 -2.5224721  0.87823381 0.837724158 0.360048475
+sexMale                             0.0390426 0.4831341 -0.9481728  1.01581478 0.006187675 0.937301649
+educSecondary                       0.7505069 0.7738955 -0.7384915  2.52434335 0.939714772 0.332351206
+educHigher                          2.0439701 0.8661217  0.3749680  3.96826633 5.812839318 0.015909587
+vuln                               -0.5706524 0.1878281 -0.9654755 -0.20344969 9.444056425 0.002118345
+occupFisherman/farmer/trader        0.8104557 0.7711061 -0.6964018  2.49028453 1.085176559 0.297542404
+occupPrivately/government employed  1.6821922 0.7667477  0.2035935  3.35837119 5.015392446 0.025122934
+occupOthers                         1.7785868 0.7973342  0.2435953  3.51283604 5.206822952 0.022498411
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1826,20 +2128,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                           coef  se(coef) lower 0.95 upper 0.95        Chisq          p method
-(Intercept)                        -2.202567788 1.5146754 -5.7052764  0.7281812 2.100405e+00 0.14726012      2
-cst_zn                              0.078279620 0.2178887 -0.3956598  0.5309814 1.120761e-01 0.73779282      2
-age26-35                           -0.004556176 0.6716315 -1.3554196  1.3735494 4.404692e-05 0.99470465      2
-age36-45                           -0.333245582 0.6758815 -1.7199834  1.0533102 2.287297e-01 0.63246734      2
-age46-55                           -0.706902449 0.7010644 -2.1702362  0.7232029 9.526103e-01 0.32905577      2
-age55+                             -2.025496945 1.3756563 -6.9478140  0.3579755 2.624641e+00 0.10521630      2
-sexMale                             0.060178464 0.5103764 -0.9904349  1.1304384 1.263267e-02 0.91051009      2
-educSecondary                      -0.128603412 0.8975633 -1.8835934  2.2018418 1.717648e-02 0.89572859      2
-educHigher                          0.607482207 0.9470005 -1.2266990  2.9848968 3.876941e-01 0.53351397      2
-vuln                                0.007612822 0.2072179 -0.4142121  0.4567055 1.203140e-03 0.97232988      2
-occupFisherman/farmer/trader        0.531593589 0.9810228 -1.4367770  2.9627905 2.668708e-01 0.60543865      2
-occupPrivately/government employed  1.026181863 0.9405800 -0.7585376  3.4116591 1.186653e+00 0.27600578      2
-occupOthers                         1.896721921 0.9332511  0.1524826  4.2602873 4.600862e+00 0.03195589      2
+                                           coef  se(coef) lower 0.95 upper 0.95        Chisq          p
+(Intercept)                        -2.202567788 1.5146754 -5.7052764  0.7281812 2.100405e+00 0.14726012
+cst_zn                              0.078279620 0.2178887 -0.3956598  0.5309814 1.120761e-01 0.73779282
+age26-35                           -0.004556176 0.6716315 -1.3554196  1.3735494 4.404692e-05 0.99470465
+age36-45                           -0.333245582 0.6758815 -1.7199834  1.0533102 2.287297e-01 0.63246734
+age46-55                           -0.706902449 0.7010644 -2.1702362  0.7232029 9.526103e-01 0.32905577
+age55+                             -2.025496945 1.3756563 -6.9478140  0.3579755 2.624641e+00 0.10521630
+sexMale                             0.060178464 0.5103764 -0.9904349  1.1304384 1.263267e-02 0.91051009
+educSecondary                      -0.128603412 0.8975633 -1.8835934  2.2018418 1.717648e-02 0.89572859
+educHigher                          0.607482207 0.9470005 -1.2266990  2.9848968 3.876941e-01 0.53351397
+vuln                                0.007612822 0.2072179 -0.4142121  0.4567055 1.203140e-03 0.97232988
+occupFisherman/farmer/trader        0.531593589 0.9810228 -1.4367770  2.9627905 2.668708e-01 0.60543865
+occupPrivately/government employed  1.026181863 0.9405800 -0.7585376  3.4116591 1.186653e+00 0.27600578
+occupOthers                         1.896721921 0.9332511  0.1524826  4.2602873 4.600862e+00 0.03195589
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1906,20 +2222,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef) lower 0.95 upper 0.95       Chisq            p method
-(Intercept)                        -1.1969125 1.2363985 -3.8173039   1.282326  0.89159309 3.450460e-01      2
-exp_socYes                          2.2077578 0.6028388  1.0619428   3.562435 15.55053728 8.032882e-05      2
-age26-35                            0.5081903 0.7414656 -1.0037127   2.043459  0.43841619 5.078879e-01      2
-age36-45                            0.3142719 0.6947827 -1.0927604   1.751017  0.19235891 6.609605e-01      2
-age46-55                           -0.4874925 0.6983610 -1.9293470   0.934471  0.45583724 4.995759e-01      2
-age55+                              0.1007385 0.8334627 -1.6292640   1.785751  0.01371154 9.067838e-01      2
-sexMale                             0.4153670 0.5108239 -0.6247165   1.476423  0.61659987 4.323136e-01      2
-educSecondary                       0.8609714 0.8046453 -0.6800576   2.720727  1.14613128 2.843605e-01      2
-educHigher                          1.9774258 0.9154692  0.2107532   4.033592  4.85291856 2.759940e-02      2
-vuln                               -0.5728378 0.1921062 -0.9802416  -0.194424  8.94442260 2.783181e-03      2
-occupFisherman/farmer/trader        0.4623825 0.8198979 -1.1786016   2.270911  0.29778052 5.852772e-01      2
-occupPrivately/government employed  1.0384556 0.7916256 -0.5083759   2.793767  1.69750356 1.926148e-01      2
-occupOthers                         1.3306160 0.8535874 -0.3558304   3.198866  2.37286292 1.234604e-01      2
+                                         coef  se(coef) lower 0.95 upper 0.95       Chisq            p
+(Intercept)                        -1.1969125 1.2363985 -3.8173039   1.282326  0.89159309 3.450460e-01
+exp_socYes                          2.2077578 0.6028388  1.0619428   3.562435 15.55053728 8.032882e-05
+age26-35                            0.5081903 0.7414656 -1.0037127   2.043459  0.43841619 5.078879e-01
+age36-45                            0.3142719 0.6947827 -1.0927604   1.751017  0.19235891 6.609605e-01
+age46-55                           -0.4874925 0.6983610 -1.9293470   0.934471  0.45583724 4.995759e-01
+age55+                              0.1007385 0.8334627 -1.6292640   1.785751  0.01371154 9.067838e-01
+sexMale                             0.4153670 0.5108239 -0.6247165   1.476423  0.61659987 4.323136e-01
+educSecondary                       0.8609714 0.8046453 -0.6800576   2.720727  1.14613128 2.843605e-01
+educHigher                          1.9774258 0.9154692  0.2107532   4.033592  4.85291856 2.759940e-02
+vuln                               -0.5728378 0.1921062 -0.9802416  -0.194424  8.94442260 2.783181e-03
+occupFisherman/farmer/trader        0.4623825 0.8198979 -1.1786016   2.270911  0.29778052 5.852772e-01
+occupPrivately/government employed  1.0384556 0.7916256 -0.5083759   2.793767  1.69750356 1.926148e-01
+occupOthers                         1.3306160 0.8535874 -0.3558304   3.198866  2.37286292 1.234604e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1946,20 +2276,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95 upper 0.95       Chisq            p method
-(Intercept)                        -3.45717798 1.7332488 -8.7394783 -0.2166308  4.43977856 0.0351108013      2
-exp_socYes                          1.89528376 0.5413747  0.8264420  3.0653004 12.29906946 0.0004531842      2
-age26-35                           -1.07199777 0.7888866 -2.7760836  0.5064824  1.75456917 0.1853033530      2
-age36-45                           -0.61672441 0.7357618 -2.1889179  0.8792686  0.65245415 0.4192366216      2
-age46-55                           -0.94291247 0.7446249 -2.5511926  0.5695926  1.49180056 0.2219373025      2
-age55+                             -0.14681408 0.9806697 -2.5951083  1.7790797  0.01970281 0.8883702768      2
-sexMale                             0.27569082 0.5727781 -0.9306416  1.5121094  0.20231051 0.6528623003      2
-educSecondary                       1.28665722 1.3934186 -1.1878395  6.2519085  0.84774923 0.3571898515      2
-educHigher                          2.70126837 1.4621563  0.1041246  7.7300310  4.22185108 0.0399066027      2
-vuln                                0.03391077 0.2090085 -0.3936775  0.4896775  0.02338382 0.8784631762      2
-occupFisherman/farmer/trader        0.50999513 0.9144985 -1.4020509  2.5966429  0.27210007 0.6019264951      2
-occupPrivately/government employed -0.21329017 0.9043738 -2.0636810  1.8148896  0.04861218 0.8254960220      2
-occupOthers                         0.62288458 0.9020120 -1.2148984  2.6462926  0.43493878 0.5095754629      2
+                                          coef  se(coef) lower 0.95 upper 0.95       Chisq            p
+(Intercept)                        -3.45717798 1.7332488 -8.7394783 -0.2166308  4.43977856 0.0351108013
+exp_socYes                          1.89528376 0.5413747  0.8264420  3.0653004 12.29906946 0.0004531842
+age26-35                           -1.07199777 0.7888866 -2.7760836  0.5064824  1.75456917 0.1853033530
+age36-45                           -0.61672441 0.7357618 -2.1889179  0.8792686  0.65245415 0.4192366216
+age46-55                           -0.94291247 0.7446249 -2.5511926  0.5695926  1.49180056 0.2219373025
+age55+                             -0.14681408 0.9806697 -2.5951083  1.7790797  0.01970281 0.8883702768
+sexMale                             0.27569082 0.5727781 -0.9306416  1.5121094  0.20231051 0.6528623003
+educSecondary                       1.28665722 1.3934186 -1.1878395  6.2519085  0.84774923 0.3571898515
+educHigher                          2.70126837 1.4621563  0.1041246  7.7300310  4.22185108 0.0399066027
+vuln                                0.03391077 0.2090085 -0.3936775  0.4896775  0.02338382 0.8784631762
+occupFisherman/farmer/trader        0.50999513 0.9144985 -1.4020509  2.5966429  0.27210007 0.6019264951
+occupPrivately/government employed -0.21329017 0.9043738 -2.0636810  1.8148896  0.04861218 0.8254960220
+occupOthers                         0.62288458 0.9020120 -1.2148984  2.6462926  0.43493878 0.5095754629
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -1986,20 +2330,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                           coef  se(coef) lower 0.95 upper 0.95        Chisq            p method
-(Intercept)                        -2.336605835 1.4460409 -5.6863768  0.5161161 2.539305e+00 1.110437e-01      2
-exp_socYes                          2.054389456 0.5277407  1.0269137  3.1867914 1.576063e+01 7.188297e-05      2
-age26-35                           -0.041468691 0.7555656 -1.6015107  1.5438470 2.753121e-03 9.581540e-01      2
-age36-45                           -0.159977146 0.7455367 -1.7180164  1.4108391 4.157198e-02 8.384378e-01      2
-age46-55                           -0.721677299 0.7779471 -2.3900837  0.8924969 7.759624e-01 3.783788e-01      2
-age55+                             -1.417377275 1.4351681 -6.4108784  1.1608402 9.911220e-01 3.194683e-01      2
-sexMale                             0.365988959 0.5744244 -0.8323898  1.6203491 3.551601e-01 5.512065e-01      2
-educSecondary                      -0.412710087 0.9262356 -2.2778378  1.9667709 1.573475e-01 6.916105e-01      2
-educHigher                         -0.243322082 1.0007753 -2.2620135  2.2218235 4.967294e-02 8.236334e-01      2
-vuln                                0.003706671 0.2150223 -0.4406475  0.4749642 2.592245e-04 9.871543e-01      2
-occupFisherman/farmer/trader        0.462402727 1.0747480 -1.7463752  3.1102475 1.592214e-01 6.898743e-01      2
-occupPrivately/government employed  0.581569812 1.0213307 -1.4338131  3.1207417 2.919992e-01 5.889423e-01      2
-occupOthers                         1.547591493 1.0266627 -0.4465359  4.1151409 2.245858e+00 1.339725e-01      2
+                                           coef  se(coef) lower 0.95 upper 0.95        Chisq            p
+(Intercept)                        -2.336605835 1.4460409 -5.6863768  0.5161161 2.539305e+00 1.110437e-01
+exp_socYes                          2.054389456 0.5277407  1.0269137  3.1867914 1.576063e+01 7.188297e-05
+age26-35                           -0.041468691 0.7555656 -1.6015107  1.5438470 2.753121e-03 9.581540e-01
+age36-45                           -0.159977146 0.7455367 -1.7180164  1.4108391 4.157198e-02 8.384378e-01
+age46-55                           -0.721677299 0.7779471 -2.3900837  0.8924969 7.759624e-01 3.783788e-01
+age55+                             -1.417377275 1.4351681 -6.4108784  1.1608402 9.911220e-01 3.194683e-01
+sexMale                             0.365988959 0.5744244 -0.8323898  1.6203491 3.551601e-01 5.512065e-01
+educSecondary                      -0.412710087 0.9262356 -2.2778378  1.9667709 1.573475e-01 6.916105e-01
+educHigher                         -0.243322082 1.0007753 -2.2620135  2.2218235 4.967294e-02 8.236334e-01
+vuln                                0.003706671 0.2150223 -0.4406475  0.4749642 2.592245e-04 9.871543e-01
+occupFisherman/farmer/trader        0.462402727 1.0747480 -1.7463752  3.1102475 1.592214e-01 6.898743e-01
+occupPrivately/government employed  0.581569812 1.0213307 -1.4338131  3.1207417 2.919992e-01 5.889423e-01
+occupOthers                         1.547591493 1.0266627 -0.4465359  4.1151409 2.245858e+00 1.339725e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2026,20 +2384,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95 upper 0.95        Chisq           p method
-(Intercept)                        -2.74297108 2.0692864 -8.64337833  1.7319390 1.402864e+00 0.236244652      2
-exp_socYes                          2.35479993 0.7960017  0.73225365  4.5582569 8.488029e+00 0.003574908      2
-age26-35                           -4.21150863 1.6880550 -9.43196995 -1.0836919 7.419917e+00 0.006450581      2
-age36-45                            0.00380654 1.0315079 -2.57814523  2.5437174 9.241965e-06 0.997574387      2
-age46-55                           -0.22352669 1.0316656 -2.83551160  2.2614587 3.215391e-02 0.857690277      2
-age55+                             -0.20828791 1.6091113 -5.72955502  3.6595855 1.019255e-02 0.919583686      2
-sexMale                            -2.57724458 0.9250622 -5.31762138 -0.6450277 7.323474e+00 0.006805972      2
-educSecondary                      -0.05216053 1.2005565 -2.98848196  3.3015208 1.272048e-03 0.971548857      2
-educHigher                          0.67776858 1.4130459 -2.85520095  4.3685823 1.531411e-01 0.695551515      2
-vuln                               -0.50581134 0.2827401 -1.27469354  0.1546859 2.288816e+00 0.130309314      2
-occupFisherman/farmer/trader        1.98370469 1.6930296 -1.60627207  7.7312218 1.077369e+00 0.299286937      2
-occupPrivately/government employed  3.04947676 1.6000859 -0.02700075  8.5592431 3.764449e+00 0.052353120      2
-occupOthers                         2.82671791 1.6792593 -0.40975947  8.7025326 2.786793e+00 0.095044249      2
+                                          coef  se(coef)  lower 0.95 upper 0.95        Chisq           p
+(Intercept)                        -2.74297108 2.0692864 -8.64337833  1.7319390 1.402864e+00 0.236244652
+exp_socYes                          2.35479993 0.7960017  0.73225365  4.5582569 8.488029e+00 0.003574908
+age26-35                           -4.21150863 1.6880550 -9.43196995 -1.0836919 7.419917e+00 0.006450581
+age36-45                            0.00380654 1.0315079 -2.57814523  2.5437174 9.241965e-06 0.997574387
+age46-55                           -0.22352669 1.0316656 -2.83551160  2.2614587 3.215391e-02 0.857690277
+age55+                             -0.20828791 1.6091113 -5.72955502  3.6595855 1.019255e-02 0.919583686
+sexMale                            -2.57724458 0.9250622 -5.31762138 -0.6450277 7.323474e+00 0.006805972
+educSecondary                      -0.05216053 1.2005565 -2.98848196  3.3015208 1.272048e-03 0.971548857
+educHigher                          0.67776858 1.4130459 -2.85520095  4.3685823 1.531411e-01 0.695551515
+vuln                               -0.50581134 0.2827401 -1.27469354  0.1546859 2.288816e+00 0.130309314
+occupFisherman/farmer/trader        1.98370469 1.6930296 -1.60627207  7.7312218 1.077369e+00 0.299286937
+occupPrivately/government employed  3.04947676 1.6000859 -0.02700075  8.5592431 3.764449e+00 0.052353120
+occupOthers                         2.82671791 1.6792593 -0.40975947  8.7025326 2.786793e+00 0.095044249
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2280,57 +2652,57 @@ Low Correlation
 +     performance::check_collinearity(.) %>% 
 +       as.data.frame() %>% 
 +       pull(VIF) %>% 
-+       mean(.)
++       max(.)
 +   }
 +   ) %>% 
 +   set_names(pairs$mdl_form)
 $`cln_beach ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.299477
+[1] 1.585229
 
 $`plnt_mngrv ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.417167
+[1] 1.932286
 
 $`cmpg_educ ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.391219
+[1] 1.849701
 
 $`monev ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.527655
+[1] 2.067154
 
 $`cln_beach ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.306177
+[1] 1.608775
 
 $`plnt_mngrv ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.40581
+[1] 1.789434
 
 $`cmpg_educ ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.45714
+[1] 1.785622
 
 $`monev ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.513446
+[1] 1.860595
 
 $`cln_beach ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.273319
+[1] 1.59219
 
 $`plnt_mngrv ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.355735
+[1] 1.727854
 
 $`cmpg_educ ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.307072
+[1] 1.617994
 
 $`monev ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.498025
+[1] 1.875354
 
 $`cln_beach ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.303464
+[1] 1.590667
 
 $`plnt_mngrv ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.559332
+[1] 2.041879
 
 $`cmpg_educ ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.448605
+[1] 1.77607
 
 $`monev ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.832634
+[1] 2.568232
 
 
 > # extract or
@@ -2397,20 +2769,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p method
-(Intercept)                         0.34490272 0.8834335 -1.4100220  2.10573489  0.14937593 6.991325e-01      2
-inform_plan                         0.76116270 0.1809055  0.4200014  1.14720820 21.33453483 3.857198e-06      2
-age26-35                           -0.72479416 0.4808174 -1.6944277  0.21432548  2.27968837 1.310782e-01      2
-age36-45                           -1.54621762 0.4954965 -2.5585381 -0.59049767 10.28907947 1.338198e-03      2
-age46-55                           -0.87656881 0.4970266 -1.8831988  0.09226177  3.13854378 7.646205e-02      2
-age55+                             -1.38805332 0.5815880 -2.5710411 -0.25887183  5.83946117 1.567062e-02      2
-sexMale                             0.04355129 0.3241821 -0.6011718  0.68453629  0.01774406 8.940298e-01      2
-educSecondary                      -1.15557621 0.5528352 -2.2847184 -0.08233664  4.45987156 3.470011e-02      2
-educHigher                         -0.16273893 0.5894353 -1.3469354  0.99950487  0.07517666 7.839435e-01      2
-vuln                               -0.10125548 0.1681249 -0.4356298  0.23253116  0.35544469 5.510471e-01      2
-occupFisherman/farmer/trader        0.79862080 0.4017093  0.0135597  1.60629246  3.97615099 4.614890e-02      2
-occupPrivately/government employed  0.49042555 0.4201383 -0.3365669  1.33192949  1.34900647 2.454519e-01      2
-occupOthers                         1.03574266 0.6893698 -0.2952031  2.47287755  2.31333683 1.282684e-01      2
+                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p
+(Intercept)                         0.34490272 0.8834335 -1.4100220  2.10573489  0.14937593 6.991325e-01
+inform_plan                         0.76116270 0.1809055  0.4200014  1.14720820 21.33453483 3.857198e-06
+age26-35                           -0.72479416 0.4808174 -1.6944277  0.21432548  2.27968837 1.310782e-01
+age36-45                           -1.54621762 0.4954965 -2.5585381 -0.59049767 10.28907947 1.338198e-03
+age46-55                           -0.87656881 0.4970266 -1.8831988  0.09226177  3.13854378 7.646205e-02
+age55+                             -1.38805332 0.5815880 -2.5710411 -0.25887183  5.83946117 1.567062e-02
+sexMale                             0.04355129 0.3241821 -0.6011718  0.68453629  0.01774406 8.940298e-01
+educSecondary                      -1.15557621 0.5528352 -2.2847184 -0.08233664  4.45987156 3.470011e-02
+educHigher                         -0.16273893 0.5894353 -1.3469354  0.99950487  0.07517666 7.839435e-01
+vuln                               -0.10125548 0.1681249 -0.4356298  0.23253116  0.35544469 5.510471e-01
+occupFisherman/farmer/trader        0.79862080 0.4017093  0.0135597  1.60629246  3.97615099 4.614890e-02
+occupPrivately/government employed  0.49042555 0.4201383 -0.3365669  1.33192949  1.34900647 2.454519e-01
+occupOthers                         1.03574266 0.6893698 -0.2952031  2.47287755  2.31333683 1.282684e-01
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2437,20 +2823,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95 upper 0.95       Chisq           p method
-(Intercept)                        -1.73796401 0.9530870 -3.7013540  0.1216752 3.347643747 0.067301285      2
-inform_plan                         0.51415712 0.1611979  0.1950102  0.8388629 9.866116795 0.001683505      2
-age26-35                           -0.97220084 0.5530279 -2.1178552  0.1080501 3.104878199 0.078058070      2
-age36-45                           -0.70531603 0.5218355 -1.7633955  0.3269689 1.795001369 0.180317982      2
-age46-55                           -0.92481996 0.5668120 -2.0996431  0.1835849 2.663679345 0.102663007      2
-age55+                             -0.17598578 0.6157797 -1.4304061  1.0422956 0.079335622 0.778199782      2
-sexMale                            -0.09449091 0.3658122 -0.8348878  0.6350363 0.064221814 0.799943494      2
-educSecondary                      -0.71886788 0.6096972 -1.9311728  0.5294259 1.305539718 0.253203804      2
-educHigher                         -0.10851961 0.6325106 -1.3580332  1.1845790 0.028367379 0.866248013      2
-vuln                                0.16402040 0.1885207 -0.2123085  0.5471965 0.728591330 0.393340175      2
-occupFisherman/farmer/trader       -0.03227230 0.4790275 -1.0028280  0.9322205 0.004350219 0.947412703      2
-occupPrivately/government employed  0.33618912 0.4687542 -0.5985691  1.2848075 0.497892815 0.480427467      2
-occupOthers                         0.87138512 0.7458942 -0.7096774  2.3199789 1.251080605 0.263346188      2
+                                          coef  se(coef) lower 0.95 upper 0.95       Chisq           p
+(Intercept)                        -1.73796401 0.9530870 -3.7013540  0.1216752 3.347643747 0.067301285
+inform_plan                         0.51415712 0.1611979  0.1950102  0.8388629 9.866116795 0.001683505
+age26-35                           -0.97220084 0.5530279 -2.1178552  0.1080501 3.104878199 0.078058070
+age36-45                           -0.70531603 0.5218355 -1.7633955  0.3269689 1.795001369 0.180317982
+age46-55                           -0.92481996 0.5668120 -2.0996431  0.1835849 2.663679345 0.102663007
+age55+                             -0.17598578 0.6157797 -1.4304061  1.0422956 0.079335622 0.778199782
+sexMale                            -0.09449091 0.3658122 -0.8348878  0.6350363 0.064221814 0.799943494
+educSecondary                      -0.71886788 0.6096972 -1.9311728  0.5294259 1.305539718 0.253203804
+educHigher                         -0.10851961 0.6325106 -1.3580332  1.1845790 0.028367379 0.866248013
+vuln                                0.16402040 0.1885207 -0.2123085  0.5471965 0.728591330 0.393340175
+occupFisherman/farmer/trader       -0.03227230 0.4790275 -1.0028280  0.9322205 0.004350219 0.947412703
+occupPrivately/government employed  0.33618912 0.4687542 -0.5985691  1.2848075 0.497892815 0.480427467
+occupOthers                         0.87138512 0.7458942 -0.7096774  2.3199789 1.251080605 0.263346188
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2477,20 +2877,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                         coef  se(coef) lower 0.95  upper 0.95       Chisq            p method
-(Intercept)                        -0.3527076 1.0869347 -2.6370503  1.82502488  0.09832583 0.7538480351      2
-inform_plan                         0.6780177 0.1886929  0.3013867  1.07238138 12.37823953 0.0004343665      2
-age26-35                           -1.2234035 0.6015011 -2.5012575 -0.05398877  4.21373076 0.0400980544      2
-age36-45                           -2.3409089 0.7185671 -3.9514123 -0.97605483 12.09440936 0.0005057323      2
-age46-55                           -1.5143309 0.6584265 -2.9365018 -0.23858743  5.48077213 0.0192267644      2
-age55+                             -1.0997355 0.7380650 -2.6679083  0.36232456  2.14511397 0.1430244149      2
-sexMale                             0.2125438 0.4322033 -0.6732787  1.10081634  0.22370877 0.6362284398      2
-educSecondary                      -1.3584658 0.7741762 -2.9633784  0.26416751  2.72216925 0.0989634376      2
-educHigher                          0.4118254 0.7395889 -1.0619213  1.98535154  0.29229694 0.5887523454      2
-vuln                               -0.2571810 0.2248469 -0.7279131  0.19985992  1.21386875 0.2705672776      2
-occupFisherman/farmer/trader       -0.3292413 0.5885067 -1.5770770  0.86547591  0.28884432 0.5909620716      2
-occupPrivately/government employed -0.1925060 0.5552866 -1.3410793  0.93681510  0.11188493 0.7380082878      2
-occupOthers                         1.1212553 0.7543501 -0.4318538  2.63553420  2.04679507 0.1525269774      2
+                                         coef  se(coef) lower 0.95  upper 0.95       Chisq            p
+(Intercept)                        -0.3527076 1.0869347 -2.6370503  1.82502488  0.09832583 0.7538480351
+inform_plan                         0.6780177 0.1886929  0.3013867  1.07238138 12.37823953 0.0004343665
+age26-35                           -1.2234035 0.6015011 -2.5012575 -0.05398877  4.21373076 0.0400980544
+age36-45                           -2.3409089 0.7185671 -3.9514123 -0.97605483 12.09440936 0.0005057323
+age46-55                           -1.5143309 0.6584265 -2.9365018 -0.23858743  5.48077213 0.0192267644
+age55+                             -1.0997355 0.7380650 -2.6679083  0.36232456  2.14511397 0.1430244149
+sexMale                             0.2125438 0.4322033 -0.6732787  1.10081634  0.22370877 0.6362284398
+educSecondary                      -1.3584658 0.7741762 -2.9633784  0.26416751  2.72216925 0.0989634376
+educHigher                          0.4118254 0.7395889 -1.0619213  1.98535154  0.29229694 0.5887523454
+vuln                               -0.2571810 0.2248469 -0.7279131  0.19985992  1.21386875 0.2705672776
+occupFisherman/farmer/trader       -0.3292413 0.5885067 -1.5770770  0.86547591  0.28884432 0.5909620716
+occupPrivately/government employed -0.1925060 0.5552866 -1.3410793  0.93681510  0.11188493 0.7380082878
+occupOthers                         1.1212553 0.7543501 -0.4318538  2.63553420  2.04679507 0.1525269774
+                                   method
+(Intercept)                             2
+inform_plan                             2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2557,20 +2971,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95  upper 0.95       Chisq          p method
-(Intercept)                         0.78943635 0.9114579 -1.00601305  2.60365610 0.744230784 0.38830897      2
-inform_penal                        0.18774455 0.1180406 -0.04349439  0.42314745 2.529862350 0.11170996      2
-age26-35                           -0.56373452 0.4640369 -1.49524312  0.34230990 1.479912964 0.22378814      2
-age36-45                           -1.17989216 0.4692828 -2.13061956 -0.27298180 6.557294783 0.01044550      2
-age46-55                           -0.63378079 0.4726546 -1.58188654  0.28979209 1.802788008 0.17937580      2
-age55+                             -1.01920112 0.5489582 -2.12303628  0.04978439 3.489783238 0.06174867      2
-sexMale                             0.16163844 0.3132704 -0.45683936  0.78126890 0.263517902 0.60771355      2
-educSecondary                      -0.86274952 0.5285950 -1.93459825  0.16425516 2.705096259 0.10002804      2
-educHigher                          0.02813042 0.5680086 -1.10798056  1.14546929 0.002427137 0.96070733      2
-vuln                               -0.14731738 0.1722473 -0.48929574  0.19207761 0.725019268 0.39450242      2
-occupFisherman/farmer/trader        0.73306898 0.3883611 -0.02471857  1.50927189 3.593819873 0.05799479      2
-occupPrivately/government employed  0.60506981 0.4008221 -0.17870349  1.40614597 2.285247068 0.13060934      2
-occupOthers                         0.76456547 0.6777523 -0.54058263  2.17979390 1.300868012 0.25405473      2
+                                          coef  se(coef)  lower 0.95  upper 0.95       Chisq          p
+(Intercept)                         0.78943635 0.9114579 -1.00601305  2.60365610 0.744230784 0.38830897
+inform_penal                        0.18774455 0.1180406 -0.04349439  0.42314745 2.529862350 0.11170996
+age26-35                           -0.56373452 0.4640369 -1.49524312  0.34230990 1.479912964 0.22378814
+age36-45                           -1.17989216 0.4692828 -2.13061956 -0.27298180 6.557294783 0.01044550
+age46-55                           -0.63378079 0.4726546 -1.58188654  0.28979209 1.802788008 0.17937580
+age55+                             -1.01920112 0.5489582 -2.12303628  0.04978439 3.489783238 0.06174867
+sexMale                             0.16163844 0.3132704 -0.45683936  0.78126890 0.263517902 0.60771355
+educSecondary                      -0.86274952 0.5285950 -1.93459825  0.16425516 2.705096259 0.10002804
+educHigher                          0.02813042 0.5680086 -1.10798056  1.14546929 0.002427137 0.96070733
+vuln                               -0.14731738 0.1722473 -0.48929574  0.19207761 0.725019268 0.39450242
+occupFisherman/farmer/trader        0.73306898 0.3883611 -0.02471857  1.50927189 3.593819873 0.05799479
+occupPrivately/government employed  0.60506981 0.4008221 -0.17870349  1.40614597 2.285247068 0.13060934
+occupOthers                         0.76456547 0.6777523 -0.54058263  2.17979390 1.300868012 0.25405473
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2637,20 +3065,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef)  lower 0.95  upper 0.95      Chisq           p method
-(Intercept)                        -0.53118760 1.1675704 -2.95434256  1.82534769 0.19354651 0.659981139      2
-inform_penal                        0.25991246 0.1523767 -0.04902816  0.57378417 2.72208881 0.098968425      2
-age26-35                           -0.91166356 0.5681485 -2.10119094  0.19985644 2.56964161 0.108932408      2
-age36-45                           -2.01856716 0.6986485 -3.57656998 -0.68622572 9.21457716 0.002400957      2
-age46-55                           -1.28226898 0.6439183 -2.67854525 -0.03220585 4.04907880 0.044195456      2
-age55+                             -0.63664481 0.6873075 -2.08467938  0.72863463 0.81812797 0.365728073      2
-sexMale                             0.25620354 0.4184910 -0.59510651  1.11651604 0.34950986 0.554390720      2
-educSecondary                      -0.94172535 0.7307932 -2.43643844  0.60021428 1.47908054 0.223918436      2
-educHigher                          0.71467326 0.7127480 -0.68787836  2.23772879 0.97421118 0.323632163      2
-vuln                               -0.20572599 0.2383577 -0.70147814  0.28002666 0.68907998 0.406477491      2
-occupFisherman/farmer/trader       -0.27729588 0.5696669 -1.47707074  0.87921043 0.21960679 0.639339688      2
-occupPrivately/government employed  0.05790897 0.5274735 -1.02045376  1.13237368 0.01130037 0.915341783      2
-occupOthers                         0.87284626 0.7338263 -0.63982157  2.33923482 1.32387292 0.249898163      2
+                                          coef  se(coef)  lower 0.95  upper 0.95      Chisq           p
+(Intercept)                        -0.53118760 1.1675704 -2.95434256  1.82534769 0.19354651 0.659981139
+inform_penal                        0.25991246 0.1523767 -0.04902816  0.57378417 2.72208881 0.098968425
+age26-35                           -0.91166356 0.5681485 -2.10119094  0.19985644 2.56964161 0.108932408
+age36-45                           -2.01856716 0.6986485 -3.57656998 -0.68622572 9.21457716 0.002400957
+age46-55                           -1.28226898 0.6439183 -2.67854525 -0.03220585 4.04907880 0.044195456
+age55+                             -0.63664481 0.6873075 -2.08467938  0.72863463 0.81812797 0.365728073
+sexMale                             0.25620354 0.4184910 -0.59510651  1.11651604 0.34950986 0.554390720
+educSecondary                      -0.94172535 0.7307932 -2.43643844  0.60021428 1.47908054 0.223918436
+educHigher                          0.71467326 0.7127480 -0.68787836  2.23772879 0.97421118 0.323632163
+vuln                               -0.20572599 0.2383577 -0.70147814  0.28002666 0.68907998 0.406477491
+occupFisherman/farmer/trader       -0.27729588 0.5696669 -1.47707074  0.87921043 0.21960679 0.639339688
+occupPrivately/government employed  0.05790897 0.5274735 -1.02045376  1.13237368 0.01130037 0.915341783
+occupOthers                         0.87284626 0.7338263 -0.63982157  2.33923482 1.32387292 0.249898163
+                                   method
+(Intercept)                             2
+inform_penal                            2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2717,20 +3159,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                           coef  se(coef)  lower 0.95  upper 0.95       Chisq           p method
-(Intercept)                         1.485995039 0.8951919 -0.25990616  3.28171495 2.778722442 0.095524339      2
-cst_zn                             -0.006196111 0.1454354 -0.29395920  0.28084303 0.001799757 0.966161064      2
-age26-35                           -0.580510670 0.4639641 -1.51216286  0.32460136 1.572340467 0.209867447      2
-age36-45                           -1.223978562 0.4701257 -2.17703836 -0.31653040 7.063644322 0.007866382      2
-age46-55                           -0.630561119 0.4707014 -1.57455312  0.28850350 1.801710457 0.179505846      2
-age55+                             -1.050039631 0.5500323 -2.15551550  0.02041923 3.695329489 0.054565004      2
-sexMale                             0.248453445 0.3070594 -0.35564749  0.85689417 0.650203024 0.420040103      2
-educSecondary                      -0.840279856 0.5252177 -1.90586623  0.17843501 2.606537148 0.106423924      2
-educHigher                          0.100031399 0.5637884 -1.02701520  1.20766756 0.031175865 0.859848607      2
-vuln                               -0.262990427 0.1575763 -0.57791952  0.04475455 2.800791652 0.094217777      2
-occupFisherman/farmer/trader        0.787313640 0.3872763  0.03307361  1.56197713 4.187907351 0.040713324      2
-occupPrivately/government employed  0.606414808 0.4007221 -0.17657701  1.40734466 2.299558271 0.129410797      2
-occupOthers                         0.682099306 0.6678975 -0.60312098  2.07488318 1.066984138 0.301627652      2
+                                           coef  se(coef)  lower 0.95  upper 0.95       Chisq           p
+(Intercept)                         1.485995039 0.8951919 -0.25990616  3.28171495 2.778722442 0.095524339
+cst_zn                             -0.006196111 0.1454354 -0.29395920  0.28084303 0.001799757 0.966161064
+age26-35                           -0.580510670 0.4639641 -1.51216286  0.32460136 1.572340467 0.209867447
+age36-45                           -1.223978562 0.4701257 -2.17703836 -0.31653040 7.063644322 0.007866382
+age46-55                           -0.630561119 0.4707014 -1.57455312  0.28850350 1.801710457 0.179505846
+age55+                             -1.050039631 0.5500323 -2.15551550  0.02041923 3.695329489 0.054565004
+sexMale                             0.248453445 0.3070594 -0.35564749  0.85689417 0.650203024 0.420040103
+educSecondary                      -0.840279856 0.5252177 -1.90586623  0.17843501 2.606537148 0.106423924
+educHigher                          0.100031399 0.5637884 -1.02701520  1.20766756 0.031175865 0.859848607
+vuln                               -0.262990427 0.1575763 -0.57791952  0.04475455 2.800791652 0.094217777
+occupFisherman/farmer/trader        0.787313640 0.3872763  0.03307361  1.56197713 4.187907351 0.040713324
+occupPrivately/government employed  0.606414808 0.4007221 -0.17657701  1.40734466 2.299558271 0.129410797
+occupOthers                         0.682099306 0.6678975 -0.60312098  2.07488318 1.066984138 0.301627652
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2797,20 +3253,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p method
-(Intercept)                         1.22979984 1.2022586 -1.2536131  3.70573393 0.9566672531 0.328027992      2
-cst_zn                             -0.27733543 0.2127900 -0.7359672  0.14472527 1.6251644586 0.202373179      2
-age26-35                           -1.01029136 0.5756477 -2.2209829  0.11305371 3.0951017530 0.078528243      2
-age36-45                           -2.02346204 0.6977575 -3.5822353 -0.69485936 9.3471009687 0.002233385      2
-age46-55                           -1.11728694 0.6151328 -2.4362775  0.08104406 3.3274196869 0.068133688      2
-age55+                             -0.57761693 0.6806974 -2.0019659  0.77605338 0.6866059018 0.407321244      2
-sexMale                             0.37393179 0.4114213 -0.4610171  1.22139773 0.7723142962 0.379502057      2
-educSecondary                      -0.96498050 0.7225644 -2.4363623  0.56535398 1.5775647091 0.209111826      2
-educHigher                          0.65223700 0.7089974 -0.7446801  2.16554027 0.8168391439 0.366105950      2
-vuln                               -0.42735403 0.2266892 -0.9075742  0.02963596 3.3545060634 0.067021314      2
-occupFisherman/farmer/trader       -0.27958953 0.5656678 -1.4714660  0.86907295 0.2264055021 0.634201999      2
-occupPrivately/government employed  0.01449567 0.5281595 -1.0672446  1.09050940 0.0007050918 0.978815810      2
-occupOthers                         0.80486448 0.7223888 -0.6933534  2.23570049 1.1585715777 0.281761980      2
+                                          coef  se(coef) lower 0.95  upper 0.95        Chisq           p
+(Intercept)                         1.22979984 1.2022586 -1.2536131  3.70573393 0.9566672531 0.328027992
+cst_zn                             -0.27733543 0.2127900 -0.7359672  0.14472527 1.6251644586 0.202373179
+age26-35                           -1.01029136 0.5756477 -2.2209829  0.11305371 3.0951017530 0.078528243
+age36-45                           -2.02346204 0.6977575 -3.5822353 -0.69485936 9.3471009687 0.002233385
+age46-55                           -1.11728694 0.6151328 -2.4362775  0.08104406 3.3274196869 0.068133688
+age55+                             -0.57761693 0.6806974 -2.0019659  0.77605338 0.6866059018 0.407321244
+sexMale                             0.37393179 0.4114213 -0.4610171  1.22139773 0.7723142962 0.379502057
+educSecondary                      -0.96498050 0.7225644 -2.4363623  0.56535398 1.5775647091 0.209111826
+educHigher                          0.65223700 0.7089974 -0.7446801  2.16554027 0.8168391439 0.366105950
+vuln                               -0.42735403 0.2266892 -0.9075742  0.02963596 3.3545060634 0.067021314
+occupFisherman/farmer/trader       -0.27958953 0.5656678 -1.4714660  0.86907295 0.2264055021 0.634201999
+occupPrivately/government employed  0.01449567 0.5281595 -1.0672446  1.09050940 0.0007050918 0.978815810
+occupOthers                         0.80486448 0.7223888 -0.6933534  2.23570049 1.1585715777 0.281761980
+                                   method
+(Intercept)                             2
+cst_zn                                  2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2877,20 +3347,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p method
-(Intercept)                         1.01200686 0.8436534 -0.6413746 2.712681640  1.43290429 2.312910e-01      2
-exp_socYes                          1.78564649 0.4088557  1.0114421 2.658482014 22.46998603 2.134529e-06      2
-age26-35                           -0.47652708 0.4958876 -1.4738735 0.499023873  0.91311013 3.392906e-01      2
-age36-45                           -0.97922990 0.5042523 -2.0030417 0.004731146  3.80422325 5.112348e-02      2
-age46-55                           -0.39461019 0.4981984 -1.3942127 0.586191656  0.61967993 4.311662e-01      2
-age55+                             -1.03087253 0.5894052 -2.2253138 0.123112038  3.06047085 8.021842e-02      2
-sexMale                             0.08927909 0.3273053 -0.5615609 0.738058805  0.07297492 7.870535e-01      2
-educSecondary                      -0.96826715 0.5512278 -2.0941658 0.105354652  3.12005593 7.733413e-02      2
-educHigher                         -0.31162340 0.5938266 -1.5115118 0.853203380  0.27279074 6.014658e-01      2
-vuln                               -0.15820518 0.1635146 -0.4851666 0.163505361  0.92604895 3.358917e-01      2
-occupFisherman/farmer/trader        0.67044667 0.4022225 -0.1186522 1.477338923  2.76988606 9.605300e-02      2
-occupPrivately/government employed  0.47798704 0.4240930 -0.3589677 1.327285855  1.25255186 2.630656e-01      2
-occupOthers                         0.50543541 0.7123933 -0.8927086 1.987246008  0.49746313 4.806169e-01      2
+                                          coef  se(coef) lower 0.95  upper 0.95       Chisq            p
+(Intercept)                         1.01200686 0.8436534 -0.6413746 2.712681640  1.43290429 2.312910e-01
+exp_socYes                          1.78564649 0.4088557  1.0114421 2.658482014 22.46998603 2.134529e-06
+age26-35                           -0.47652708 0.4958876 -1.4738735 0.499023873  0.91311013 3.392906e-01
+age36-45                           -0.97922990 0.5042523 -2.0030417 0.004731146  3.80422325 5.112348e-02
+age46-55                           -0.39461019 0.4981984 -1.3942127 0.586191656  0.61967993 4.311662e-01
+age55+                             -1.03087253 0.5894052 -2.2253138 0.123112038  3.06047085 8.021842e-02
+sexMale                             0.08927909 0.3273053 -0.5615609 0.738058805  0.07297492 7.870535e-01
+educSecondary                      -0.96826715 0.5512278 -2.0941658 0.105354652  3.12005593 7.733413e-02
+educHigher                         -0.31162340 0.5938266 -1.5115118 0.853203380  0.27279074 6.014658e-01
+vuln                               -0.15820518 0.1635146 -0.4851666 0.163505361  0.92604895 3.358917e-01
+occupFisherman/farmer/trader        0.67044667 0.4022225 -0.1186522 1.477338923  2.76988606 9.605300e-02
+occupPrivately/government employed  0.47798704 0.4240930 -0.3589677 1.327285855  1.25255186 2.630656e-01
+occupOthers                         0.50543541 0.7123933 -0.8927086 1.987246008  0.49746313 4.806169e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2917,20 +3401,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95 upper 0.95       Chisq            p method
-(Intercept)                        -1.60707605 0.9575689 -3.5882576  0.2635325  2.81992668 0.0931006559      2
-exp_socYes                          1.38320757 0.3748236  0.6436461  2.1398930 13.36109320 0.0002568985      2
-age26-35                           -0.68541983 0.5581082 -1.8391293  0.4105178  1.49198042 0.2219094401      2
-age36-45                           -0.17768041 0.5338635 -1.2493895  0.8895945  0.10765653 0.7428280767      2
-age46-55                           -0.40385058 0.5686557 -1.5706532  0.7224632  0.49122779 0.4833801261      2
-age55+                              0.24175128 0.6125188 -0.9905813  1.4654949  0.15083689 0.6977368781      2
-sexMale                            -0.08951951 0.3658342 -0.8291509  0.6399584  0.05771333 0.8101473141      2
-educSecondary                      -0.52709608 0.5998095 -1.7114206  0.7057699  0.72874631 0.3932898598      2
-educHigher                         -0.21048989 0.6453466 -1.4974343  1.1013375  0.10217361 0.7492366446      2
-vuln                                0.17153993 0.1935544 -0.2150542  0.5683086  0.75260023 0.3856542285      2
-occupFisherman/farmer/trader       -0.19870601 0.4804083 -1.1769782  0.7630783  0.16442301 0.6851165783      2
-occupPrivately/government employed  0.25951549 0.4735004 -0.6876492  1.2164639  0.28980891 0.5903430103      2
-occupOthers                         0.29270682 0.7685827 -1.3454864  1.7885503  0.13678939 0.7114938862      2
+                                          coef  se(coef) lower 0.95 upper 0.95       Chisq            p
+(Intercept)                        -1.60707605 0.9575689 -3.5882576  0.2635325  2.81992668 0.0931006559
+exp_socYes                          1.38320757 0.3748236  0.6436461  2.1398930 13.36109320 0.0002568985
+age26-35                           -0.68541983 0.5581082 -1.8391293  0.4105178  1.49198042 0.2219094401
+age36-45                           -0.17768041 0.5338635 -1.2493895  0.8895945  0.10765653 0.7428280767
+age46-55                           -0.40385058 0.5686557 -1.5706532  0.7224632  0.49122779 0.4833801261
+age55+                              0.24175128 0.6125188 -0.9905813  1.4654949  0.15083689 0.6977368781
+sexMale                            -0.08951951 0.3658342 -0.8291509  0.6399584  0.05771333 0.8101473141
+educSecondary                      -0.52709608 0.5998095 -1.7114206  0.7057699  0.72874631 0.3932898598
+educHigher                         -0.21048989 0.6453466 -1.4974343  1.1013375  0.10217361 0.7492366446
+vuln                                0.17153993 0.1935544 -0.2150542  0.5683086  0.75260023 0.3856542285
+occupFisherman/farmer/trader       -0.19870601 0.4804083 -1.1769782  0.7630783  0.16442301 0.6851165783
+occupPrivately/government employed  0.25951549 0.4735004 -0.6876492  1.2164639  0.28980891 0.5903430103
+occupOthers                         0.29270682 0.7685827 -1.3454864  1.7885503  0.13678939 0.7114938862
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2957,20 +3455,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                          coef  se(coef) lower 0.95 upper 0.95        Chisq            p method
-(Intercept)                        -0.89270191 1.2308113 -3.5480666  1.5983877  0.479748009 4.885365e-01      2
-exp_socYes                          2.86452809 0.4859111  1.9261662  3.9408584 40.833081243 1.658025e-10      2
-age26-35                           -0.93723810 0.6698825 -2.3757126  0.3896820  1.891080202 1.690801e-01      2
-age36-45                           -1.82086964 0.8124719 -3.6404513 -0.2381792  5.150669114 2.323742e-02      2
-age46-55                           -0.60983464 0.6905426 -2.0786454  0.7838025  0.729281571 3.931162e-01      2
-age55+                             -0.34726780 0.7646467 -1.9483568  1.2108710  0.189849994 6.630415e-01      2
-sexMale                             0.04068960 0.4665246 -0.9267502  0.9979544  0.006990012 9.333695e-01      2
-educSecondary                      -1.08996395 0.8128336 -2.7830616  0.6329757  1.574589724 2.095417e-01      2
-educHigher                          0.23675210 0.8334607 -1.4837889  2.0099537  0.072413093 7.878552e-01      2
-vuln                               -0.09278256 0.2597813 -0.6413347  0.4538078  0.112877680 7.368914e-01      2
-occupFisherman/farmer/trader       -0.93920540 0.6331511 -2.3110412  0.3306874  2.078675602 1.493697e-01      2
-occupPrivately/government employed -0.73936152 0.6399953 -2.1135541  0.5528203  1.241044356 2.652699e-01      2
-occupOthers                         0.24436283 0.8592485 -1.5753249  2.0101356  0.072084859 7.883251e-01      2
+                                          coef  se(coef) lower 0.95 upper 0.95        Chisq            p
+(Intercept)                        -0.89270191 1.2308113 -3.5480666  1.5983877  0.479748009 4.885365e-01
+exp_socYes                          2.86452809 0.4859111  1.9261662  3.9408584 40.833081243 1.658025e-10
+age26-35                           -0.93723810 0.6698825 -2.3757126  0.3896820  1.891080202 1.690801e-01
+age36-45                           -1.82086964 0.8124719 -3.6404513 -0.2381792  5.150669114 2.323742e-02
+age46-55                           -0.60983464 0.6905426 -2.0786454  0.7838025  0.729281571 3.931162e-01
+age55+                             -0.34726780 0.7646467 -1.9483568  1.2108710  0.189849994 6.630415e-01
+sexMale                             0.04068960 0.4665246 -0.9267502  0.9979544  0.006990012 9.333695e-01
+educSecondary                      -1.08996395 0.8128336 -2.7830616  0.6329757  1.574589724 2.095417e-01
+educHigher                          0.23675210 0.8334607 -1.4837889  2.0099537  0.072413093 7.878552e-01
+vuln                               -0.09278256 0.2597813 -0.6413347  0.4538078  0.112877680 7.368914e-01
+occupFisherman/farmer/trader       -0.93920540 0.6331511 -2.3110412  0.3306874  2.078675602 1.493697e-01
+occupPrivately/government employed -0.73936152 0.6399953 -2.1135541  0.5528203  1.241044356 2.652699e-01
+occupOthers                         0.24436283 0.8592485 -1.5753249  2.0101356  0.072084859 7.883251e-01
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -2997,20 +3509,34 @@ logistf(formula = formula(.), data = df, family = binomial())
 
 Model fitted by Penalized ML
 Coefficients:
-                                           coef  se(coef) lower 0.95 upper 0.95        Chisq          p method
-(Intercept)                        -2.356655602 1.8312858 -7.7967651  1.4331237 1.417211e+00 0.23386305      2
-exp_socYes                          1.537851747 0.6039024  0.1844171  3.0372202 4.966024e+00 0.02585000      2
-age26-35                           -0.354025294 0.8343313 -2.2875891  1.4322659 1.530148e-01 0.69567083      2
-age36-45                           -0.343077178 0.9432136 -2.7644703  1.6589834 1.085694e-01 0.74177881      2
-age46-55                            0.007262832 0.9235232 -2.4036036  1.9714007 4.858574e-05 0.99443851      2
-age55+                              1.133791471 0.9552081 -0.9833840  3.3846151 1.105830e+00 0.29299011      2
-sexMale                            -0.360232596 0.6158168 -1.8290057  1.0348358 2.576939e-01 0.61170895      2
-educSecondary                       1.376232800 1.4452385 -1.2547146  6.3791830 8.915256e-01 0.34506423      2
-educHigher                          1.201567403 1.5032574 -1.6818445  6.2540706 5.841890e-01 0.44467503      2
-vuln                               -0.718524831 0.3504737 -1.6582091  0.0506945 3.331050e+00 0.06798346      2
-occupFisherman/farmer/trader       -0.616947207 0.8208632 -2.7472104  1.2023690 4.259632e-01 0.51397644      2
-occupPrivately/government employed  0.151083308 0.7101455 -1.4492685  1.7345376 3.668879e-02 0.84810006      2
-occupOthers                        -0.733209440 1.4196376 -5.6976511  1.7920119 2.465950e-01 0.61948294      2
+                                           coef  se(coef) lower 0.95 upper 0.95        Chisq          p
+(Intercept)                        -2.356655602 1.8312858 -7.7967651  1.4331237 1.417211e+00 0.23386305
+exp_socYes                          1.537851747 0.6039024  0.1844171  3.0372202 4.966024e+00 0.02585000
+age26-35                           -0.354025294 0.8343313 -2.2875891  1.4322659 1.530148e-01 0.69567083
+age36-45                           -0.343077178 0.9432136 -2.7644703  1.6589834 1.085694e-01 0.74177881
+age46-55                            0.007262832 0.9235232 -2.4036036  1.9714007 4.858574e-05 0.99443851
+age55+                              1.133791471 0.9552081 -0.9833840  3.3846151 1.105830e+00 0.29299011
+sexMale                            -0.360232596 0.6158168 -1.8290057  1.0348358 2.576939e-01 0.61170895
+educSecondary                       1.376232800 1.4452385 -1.2547146  6.3791830 8.915256e-01 0.34506423
+educHigher                          1.201567403 1.5032574 -1.6818445  6.2540706 5.841890e-01 0.44467503
+vuln                               -0.718524831 0.3504737 -1.6582091  0.0506945 3.331050e+00 0.06798346
+occupFisherman/farmer/trader       -0.616947207 0.8208632 -2.7472104  1.2023690 4.259632e-01 0.51397644
+occupPrivately/government employed  0.151083308 0.7101455 -1.4492685  1.7345376 3.668879e-02 0.84810006
+occupOthers                        -0.733209440 1.4196376 -5.6976511  1.7920119 2.465950e-01 0.61948294
+                                   method
+(Intercept)                             2
+exp_socYes                              2
+age26-35                                2
+age36-45                                2
+age46-55                                2
+age55+                                  2
+sexMale                                 2
+educSecondary                           2
+educHigher                              2
+vuln                                    2
+occupFisherman/farmer/trader            2
+occupPrivately/government employed      2
+occupOthers                             2
 
 Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
 
@@ -3251,57 +3777,57 @@ Low Correlation
 +     performance::check_collinearity(.) %>% 
 +       as.data.frame() %>% 
 +       pull(VIF) %>% 
-+       mean(.)
++       max(.)
 +   }
 +   ) %>% 
 +   set_names(pairs$mdl_form)
 $`cln_beach ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.567333
+[1] 2.236523
 
 $`plnt_mngrv ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.605546
+[1] 2.242356
 
 $`cmpg_educ ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.83251
+[1] 2.765228
 
 $`monev ~ inform_plan  + age + sex + educ + vuln + occup`
-[1] 1.53708
+[1] 2.344678
 
 $`cln_beach ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.569832
+[1] 2.09166
 
 $`plnt_mngrv ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.595092
+[1] 2.144242
 
 $`cmpg_educ ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.758967
+[1] 2.562018
 
 $`monev ~ inform_penal  + age + sex + educ + vuln + occup`
-[1] 1.453794
+[1] 2.064354
 
 $`cln_beach ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.513227
+[1] 2.138723
 
 $`plnt_mngrv ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.536315
+[1] 2.143985
 
 $`cmpg_educ ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.678887
+[1] 2.437536
 
 $`monev ~ cst_zn  + age + sex + educ + vuln + occup`
-[1] 1.433207
+[1] 2.020985
 
 $`cln_beach ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.549547
+[1] 2.249607
 
 $`plnt_mngrv ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.575353
+[1] 2.158256
 
 $`cmpg_educ ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.718853
+[1] 2.485912
 
 $`monev ~ exp_soc  + age + sex + educ + vuln + occup`
-[1] 1.484591
+[1] 2.159558
 
 
 > # extract or
@@ -3395,12 +3921,12 @@ $`monev ~ exp_soc  + age + sex + educ + vuln + occup`
 > time_end <- Sys.time()
 
 > time_end
-[1] "2025-09-15 17:20:41 WIB"
+[1] "2025-09-19 10:06:07 WIB"
 
 > time_exec <- time_end - time_start
 
 > time_exec
-Time difference of 1.136218 mins
+Time difference of 1.891645 mins
 
 > # remove all objects which are created in current r script file
 > rm(list = setdiff(ls(), init_obj))

@@ -9,7 +9,7 @@
 # Ari Purwanto Sarwo Prasojo
 # 
 # Date of this version:
-# 2025/09/14
+# 2025/09/19
 
 
 # initial objects
@@ -45,46 +45,37 @@ check_collinearity(mdl_ols)
 ols_test_normality(mdl_ols)
 ols_test_breusch_pagan(mdl_ols)
 # model summary with robust se
-coeftest(mdl_ols, vcov = vcovHC(mdl_ols, "HC0"))
-waldtest(
-  update(mdl_ols, . ~ 1), mdl_ols,
-  vcov = vcovHC(mdl_ols, type = "HC0"), test = "F"
-)
+coeftest(mdl_ols, vcov = vcovHC(mdl_ols, "HC1"))
+# using  bootstrap se
+boot_cov <- cov_boot(mdl_ols)
+coeftest(mdl_ols, vcov = boot_cov)
 model_performance(mdl_ols)
 
 ## south kuta ----
 # fit model
-mdl_ols_sk <- lm(
-  amasnbs ~ age + sex + educ + vuln + occup, 
-  data = dfl %>% filter(area=="South Kuta")
-)
+mdl_ols_sk <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sk)
 # check assumption
 check_collinearity(mdl_ols_sk)
 ols_test_normality(mdl_ols_sk)
 ols_test_breusch_pagan(mdl_ols_sk)
 # model summary with robust se
-coeftest(mdl_ols_sk, vcov = vcovHC(mdl_ols_sk, "HC0"))
-waldtest(
-  update(mdl_ols_sk, . ~ 1), mdl_ols_sk,
-  vcov = vcovHC(mdl_ols_sk, type = "HC0"), test = "F"
-)
+coeftest(mdl_ols_sk, vcov = vcovHC(mdl_ols_sk, "HC1"))
+# using  bootstrap se
+boot_cov <- cov_boot(mdl_ols_sk)
+coeftest(mdl_ols_sk, vcov = boot_cov)
 model_performance(mdl_ols_sk)
 
 ## south denpasar ----
-mdl_ols_sd <- lm(
-  amasnbs ~ age + sex + educ + vuln + occup, 
-  data = dfl %>% filter(area=="South Denpasar")
-)
+mdl_ols_sd <- lm(amasnbs ~ age + sex + educ + vuln + occup, data = dfl_sd)
 # check assumption
 check_collinearity(mdl_ols_sd)
 ols_test_normality(mdl_ols_sd)
 ols_test_breusch_pagan(mdl_ols_sd)
 # model summary with robust se
-lmtest::coeftest(mdl_ols_sd, vcov = vcovHC(mdl_ols_sd, "HC0"))
-waldtest(
-  update(mdl_ols_sd, . ~ 1), mdl_ols_sd,
-  vcov = vcovHC(mdl_ols_sd, type = "HC0"), test = "F"
-)
+coeftest(mdl_ols_sd, vcov = vcovHC(mdl_ols_sd, "HC1"))
+# using  bootstrap se
+boot_cov <- cov_boot(mdl_ols_sd)
+coeftest(mdl_ols_sd, vcov = boot_cov)
 model_performance(mdl_ols_sd)
 
 # forest plot predicted means
@@ -98,7 +89,7 @@ ggcoef_compare(
     xlevels=list(vuln=c(1.5, 3, 4.5)),
     # robust se
     vcov = vcovHC,
-    type = "HC0"
+    type = "HC1"
   ),
   type = "faceted",
   vline = FALSE,
@@ -109,7 +100,7 @@ ggcoef_compare(
 ) +
   # labs(title="Awareness of mangrove as nature based solution") +
   # ggplot2::scale_y_discrete(labels = scales::label_wrap(15)) +
-  theme(axis.text = element_text(size=10,color="black"))
+  theme(axis.text = element_text(size=9,color="black"))
 
 ggsave(sv_fig_name1, width = 8.3, height = 10, units = "in", dpi = 300)
 
@@ -171,7 +162,7 @@ map(mdl_all,
     performance::check_collinearity(.) %>% 
       as.data.frame() %>% 
       pull(VIF) %>% 
-      mean(.)
+      max(.)
   }
   ) %>% 
   set_names(pairs$mdl_form)
@@ -207,7 +198,7 @@ map(mdl_sk,
     performance::check_collinearity(.) %>% 
       as.data.frame() %>% 
       pull(VIF) %>% 
-      mean(.)
+      max(.)
   }
   ) %>% 
   set_names(pairs$mdl_form)
@@ -234,7 +225,7 @@ map(mdl_sd,
     performance::check_collinearity(.) %>% 
       as.data.frame() %>% 
       pull(VIF) %>% 
-      mean(.)
+      max(.)
   }
   ) %>% 
   set_names(pairs$mdl_form)

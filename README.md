@@ -11,6 +11,8 @@ R code for analyzing community interactions with mangroves as a nature-based sol
 | syntax\     | Folder containing R syntax used to perform the analysis. |
 | table\      | Folder containing exported tables. |
 
+### R session information for replication
+
 ``` r
 R version 4.3.3 (2024-02-29 ucrt)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
